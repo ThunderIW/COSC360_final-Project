@@ -64,17 +64,32 @@ nav {
     height: 42px;
 }
 
+.hero h1, .hero p {
+    text-align: center;
+}
+
+
 .dropdown-menu {
     position: absolute;
     right: 0;
     background: white;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
     border-radius: 6px;
-    display: none;
     flex-direction: column;
     width: 160px;
     z-index: 10;
     padding: 10px 0;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    display: none;
+}
+
+/* Show dropdown when toggled */
+.dropdown-menu.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .dropdown-menu a {
@@ -136,6 +151,18 @@ nav {
 
 .contact-form button:hover {
     background-color: #4338ca;
+}
+
+/* Error Messages */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.error-border {
+    border: 2px solid red !important;
 }
 
 /* Footer */

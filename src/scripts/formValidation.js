@@ -1,6 +1,5 @@
 const form = document.getElementById('contact-form');
-const userFirstName = document.getElementById("first-name");
-const userLastName = document.getElementById("last-name");
+const userName = document.getElementById("name");
 const userEmail = document.getElementById("email");
 const messageToSend = document.getElementById("message");
 const phoneNumber = document.getElementById("phone");
@@ -10,15 +9,10 @@ form.addEventListener('submit', (e) => {
 
     // Remove all previous error messages before validation
     document.querySelectorAll(".error-message").forEach(el => el.remove());
-    document.querySelectorAll(".border-red-500").forEach(el => el.classList.remove("border-red-500"));
+    document.querySelectorAll(".error-border").forEach(el => el.classList.remove("error-border"));
 
-    if (userFirstName.value.trim() === "") {
-        showError(userFirstName, "Please enter your first name!");
-        isValid = false;
-    }
-
-    if (userLastName.value.trim() === "") {
-        showError(userLastName, "Please enter your last name!");
+    if (userName.value.trim() === "") {
+        showError(userName, "Please enter your full name!");
         isValid = false;
     }
 
@@ -35,8 +29,8 @@ form.addEventListener('submit', (e) => {
         isValid = false;
     }
 
-    if (phoneNumber.value.trim() === "" || phoneNumber.value.length < 10) {
-        showError(phoneNumber, "Please enter a valid phone number!");
+    if (!validatePhone(phoneNumber.value)) {
+        showError(phoneNumber, "Please enter a valid phone number (e.g., 123-456-7890)!");
         isValid = false;
     }
 
@@ -47,16 +41,16 @@ form.addEventListener('submit', (e) => {
 
 // Function to Show Errors (Prevents Duplicate Messages)
 function showError(inputElement, message) {
-    // Remove existing error message for this input
     if (inputElement.nextElementSibling && inputElement.nextElementSibling.classList.contains("error-message")) {
         inputElement.nextElementSibling.remove();
     }
 
     const errorDiv = document.createElement("div");
-    errorDiv.classList.add("text-red-500", "font-bold", "mt-1", "error-message");
+    //errorDiv.classList.add("text-red-500", "font-bold", "mt-1", "error-message");
     errorDiv.textContent = message;
+    errorDiv.classList.add("error-message");
 
-    inputElement.classList.add("border-red-500");
+    inputElement.classList.add("error-border");
     inputElement.insertAdjacentElement("afterend", errorDiv);
 }
 
@@ -66,6 +60,12 @@ function validateEmail(email) {
     return re.test(email);
 }
 
+// Function to Validate Phone Number Format (e.g., 123-456-7890)
+function validatePhone(phone) {
+    const phoneRegex = /^\d{3}-\d{3}-\d{4}$/;
+    return phoneRegex.test(phone.trim());
+}
+
 // Remove Errors on Input
 let inputs = document.querySelectorAll('input, textarea');
 inputs.forEach(input => {
@@ -73,6 +73,6 @@ inputs.forEach(input => {
         if (input.nextElementSibling && input.nextElementSibling.classList.contains('error-message')) {
             input.nextElementSibling.remove();
         }
-        input.classList.remove('border-red-500');
+        input.classList.remove('error-border');
     });
 });

@@ -69,10 +69,20 @@ nav {
     background: white;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    display: none;
     flex-direction: column;
     width: 150px;
     z-index: 10;
+    display: none; /* Hidden by default */
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* This class will be toggled via JavaScript */
+.dropdown-menu.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .dropdown-menu a {
