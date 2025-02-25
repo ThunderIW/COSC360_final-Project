@@ -507,9 +507,6 @@
     width: calc(var(--spacing) * 10);
     height: calc(var(--spacing) * 10);
   }
-  .h-6 {
-    height: calc(var(--spacing) * 6);
-  }
   .h-8 {
     height: calc(var(--spacing) * 8);
   }
@@ -527,9 +524,6 @@
   }
   .min-h-screen {
     min-height: 100vh;
-  }
-  .w-1 {
-    width: calc(var(--spacing) * 1);
   }
   .w-1\/2 {
     width: calc(1/2 * 100%);
@@ -1829,9 +1823,6 @@
   }
   .shadow-initial {
     --tw-shadow-color: initial;
-  }
-  .ring-black {
-    --tw-ring-color: var(--color-black);
   }
   .ring-black\/5 {
     --tw-ring-color: color-mix(in oklab, var(--color-black) 5%, transparent);
