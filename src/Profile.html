@@ -5,7 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
     <link rel="stylesheet" href="CSS/ProfilePage.css">
-    <script src="scripts/profileDropDown.js" defer></script>
+    <link rel="stylesheet" href="CSS/homePage.css"> <!-- Ensure both stylesheets are included -->
+    <script defer>
+        document.addEventListener("DOMContentLoaded", function() {
+            const profileButton = document.getElementById("user-menu-button");
+            const dropdownMenu = document.getElementById("user-dropdown");
+            
+            profileButton.addEventListener("click", function(event) {
+                event.stopPropagation();
+                dropdownMenu.classList.toggle("show");
+            });
+            
+            document.addEventListener("click", function(event) {
+                if (!profileButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                    dropdownMenu.classList.remove("show");
+                }
+            });
+        });
+    </script>
 </head>
 <body>
     <nav>
@@ -38,10 +55,12 @@
             <p><strong>Email:</strong> johndoe@example.com</p>
             <p><strong>Job:</strong> Software Engineer</p>
             <p><strong>Location:</strong> New York, USA</p>
+            
         </div>
         <div class="profile-image">
             <img src="assets/profile-picture.jpg" alt="Profile Picture">
         </div>
+        
     </div>
 
     <div class="profile-content">
