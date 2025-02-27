@@ -157,3 +157,17 @@ footer {
     padding: 20px;
     margin-top: 20px;
 }
+
+
+.product-link {
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit text color */
+    display: block; /* Make the link behave like a block element */
+}
+
+.product-link:visited, 
+.product-link:hover, 
+.product-link:active {
+    text-decoration: none;
+    color: inherit;
+}
