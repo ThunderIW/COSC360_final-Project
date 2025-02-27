@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HomePage</title>
-    <link rel="stylesheet" href="CSS/homePage.css" />
+    <title>Checkout</title>
+    <link rel="stylesheet" href="CSS/checkout.css" />
     <script src="scripts/profileDropDown.js" defer></script>
   </head>
   <body>
@@ -19,11 +19,11 @@
           />
         </div>
         <div class="nav-links">
-          <a href="homePage.html" class="active">Home</a>
+          <a href="homePage.html">Home</a>
           <a href="Shop.html">Shop</a>
           <a href="#">Projects</a>
           <a href="Contact.html">Contact us</a>
-          <a href="checkout.html"> Checkout</a>
+          <a href="checkout.html" class="active"> Checkout</a>
         </div>
         <div class="profile-container">
           <button class="profile-button" id="user-menu-button">
@@ -41,40 +41,37 @@
       </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-      <h1>Welcome to Our Store</h1>
-      <p>Discover our latest products and projects.</p>
-      <a href="Shop.html">Shop Now</a>
-    </header>
+    <main class="checkout">
+      <section class="prompt">
+        <h1>Ready to Checkout?</h1>
+        <h2>Finalize your order right here!</h2>
+      </section>
 
-    <!-- Features Section -->
-    <section class="features">
-      <h2>Why Choose Us?</h2>
-      <div class="feature-item">
-        <h3>Quality Products</h3>
-        <p>We provide the best quality products at affordable prices.</p>
-      </div>
-      <div class="feature-item">
-        <h3>Fast Shipping</h3>
-        <p>Get your orders delivered quickly and safely.</p>
-      </div>
-      <div class="feature-item">
-        <h3>24/7 Support</h3>
-        <p>Our team is always here to help you with any questions.</p>
-      </div>
-    </section>
+      <section class="payment">
+        <p>How would you like to pay for your dinosaurs?</p>
+        <input
+          type="radio"
+          id="creditcard"
+          name="paymenttype"
+          value="creditcard"
+        />
+        <label>Credit Card</label>
+        <br />
+        <input
+          type="radio"
+          id="debitcard"
+          name="paymenttype"
+          value="debitcard"
+        />
+        <label>Debit Card</label>
+        <br />
+        <input type="radio" id="paypal" name="paymenttype" value="paypal" />
+        <label>PayPal</label>
+      </section>
 
-    <!-- Call to Action (CTA) -->
-    <section class="cta">
-      <h2>Join Our Community</h2>
-      <p>Stay updated with our latest deals and offers.</p>
-      <a href="Contact.html">Contact Us</a>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-      <p>&copy; 2025 Your Company. All rights reserved.</p>
-    </footer>
+      <section class="shoppinglist">
+        <h2>Here is the list of your items:</h2>
+      </section>
+    </main>
   </body>
 </html>
