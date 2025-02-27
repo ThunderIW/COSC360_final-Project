@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="CSS/profilePage.css">
+    <link rel="stylesheet" href="CSS/ProfilePage.css">
+    <script src="scripts/profileDropDown.js" defer></script>
 </head>
 <body>
-    <!-- Navbar -->
     <nav>
         <div class="nav-container">
             <div class="logo">
@@ -15,7 +15,7 @@
             </div>
             <div class="nav-links">
                 <a href="homePage.html">Home</a>
-                <a href="Shop.html" class="active">Shop</a>
+                <a href="Shop.html">Shop</a>
                 <a href="#">Projects</a>
                 <a href="Contact.html">Contact us</a>
             </div>
@@ -32,52 +32,43 @@
         </div>
     </nav>
 
-    <!-- Profile Content -->
-<div>
-    <h2>Your Profile</h2>
-    <div>
-        <p><strong>Username:</strong> JohnDoe123</p>
-        <p><strong>Email:</strong> johndoe@example.com</p>
-        <p><strong>Job:</strong> Software Engineer</p>
-        <p><strong>Location:</strong> New York, USA</p>
+    <div class="profile-container">
+        <div class="profile-info">
+            <p><strong>Username:</strong> JohnDoe123</p>
+            <p><strong>Email:</strong> johndoe@example.com</p>
+            <p><strong>Job:</strong> Software Engineer</p>
+            <p><strong>Location:</strong> New York, USA</p>
+        </div>
+        <div class="profile-image">
+            <img src="assets/profile-picture.jpg" alt="Profile Picture">
+        </div>
     </div>
-    <div>
-        <img src="profile-picture.jpg" alt="Profile Picture" width="150">
+
+    <div class="profile-content">
+        <h3>Order History</h3>
+        <select id="order-history-select">
+            <option>Select an order</option>
+            <option>Order #001 - Jan 5, 2024</option>
+            <option>Order #002 - Feb 12, 2024</option>
+            <option>Order #003 - Mar 20, 2024</option>
+        </select>
+        <ul id="order-history-list">
+            <li>Order #001 - Jan 5, 2024</li>
+            <li>Order #002 - Feb 12, 2024</li>
+            <li>Order #003 - Mar 20, 2024</li>
+        </ul>
     </div>
-</div>
 
-<div>
-    <h3>Order History</h3>
-    <select>
-        <option>Select an order</option>
-        <option>Order #001 - Jan 5, 2024</option>
-        <option>Order #002 - Feb 12, 2024</option>
-        <option>Order #003 - Mar 20, 2024</option>
-    </select>
-    <ul>
-        <li>Order #001 - Jan 5, 2024</li>
-        <li>Order #002 - Feb 12, 2024</li>
-        <li>Order #003 - Mar 20, 2024</li>
-    </ul>
-</div>
+    <div class="profile-content">
+        <h3>Wishlist</h3>
+        <select id="wishlist-select">
+            <option>Select an item</option>
+            <option>Smartphone</option>
+            <option>Wireless Headphones</option>
+            <option>Gaming Laptop</option>
+        </select>
+    </div>
 
-<div>
-    <h3>Wishlist</h3>
-    <select>
-        <option>Select an item</option>
-        <option>Smartphone</option>
-        <option>Wireless Headphones</option>
-        <option>Gaming Laptop</option>
-    </select>
-</div>
-
-<div class="socials">
-<img src="assets/email_16.png">
-<img src="assets/facebook_16.png">
-<img src="assets/twitter_16.png">
-</div>
-
-    <!-- Footer -->
     <footer>
         <p>&copy; 2025 Your Company. All rights reserved.</p>
     </footer>

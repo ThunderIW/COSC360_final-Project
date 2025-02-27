@@ -1,4 +1,4 @@
-/* General Styles */
+/* General styles */
 body {
     background-color: #eef2f7;
     font-family: Arial, sans-serif;
@@ -64,6 +64,11 @@ nav {
     height: 42px;
 }
 
+.hero h1, .hero p {
+    text-align: center;
+}
+
+
 .dropdown-menu {
     position: absolute;
     right: 0;
@@ -99,54 +104,65 @@ nav {
     background-color: #f3f3f3;
 }
 
-/* Shop Container */
-.shop-container {
+/* Contact Form Section */
+.contact-form {
+    background-color: white;
+    max-width: 650px;
+    margin: 50px auto;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form .form-group {
     display: flex;
-    max-width: 1200px;
-    margin: 20px auto;
-    gap: 20px;
+    flex-direction: column;
+    margin-bottom: 15px;
 }
 
-/* Sidebar */
-.sidebar {
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    width: 250px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+.contact-form label {
+    font-weight: bold;
+    margin-bottom: 5px;
 }
 
-/* Product Section */
-.products {
-    flex-grow: 1;
-    background-color: white;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.product-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.product {
-    background: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s ease-in-out;
-}
-
-.product:hover {
-    transform: scale(1.05);
-}
-
-.product img {
+.contact-form input, .contact-form textarea {
     width: 100%;
-    border-radius: 8px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+.contact-form textarea {
+    resize: vertical;
+}
+
+.contact-form button {
+    background-color: #4f46e5;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #4338ca;
+}
+
+/* Error Messages */
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.error-border {
+    border: 2px solid red !important;
 }
 
 /* Footer */
@@ -154,6 +170,6 @@ footer {
     background-color: #1f2937;
     color: white;
     text-align: center;
-    padding: 20px;
-    margin-top: 20px;
+    padding: 25px 0;
+    font-size: 14px;
 }
