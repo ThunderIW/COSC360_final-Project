@@ -34,7 +34,7 @@ function verify() {
 
     if (email == "") {
       errorPresent(
-        document.forms["loginform"]["email"],
+        document.forms["signupform"]["email"],
         "You need to enter your email!"
       );
     }
