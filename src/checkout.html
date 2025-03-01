@@ -47,33 +47,11 @@
         <h2>Finalize your order right here!</h2>
       </section>
 
-      <section class="payment">
-        <p>How would you like to pay for your dinosaurs?</p>
-        <input
-          type="radio"
-          id="creditcard"
-          name="paymenttype"
-          value="creditcard"
-        />
-        <label>Credit Card</label>
-        <br />
-        <input
-          type="radio"
-          id="debitcard"
-          name="paymenttype"
-          value="debitcard"
-        />
-        <label>Debit Card</label>
-        <br />
-        <input type="radio" id="paypal" name="paymenttype" value="paypal" />
-        <label>PayPal</label>
-      </section>
-
       <section class="shoppinglist">
-        <h2>Here is the list of your items:</h2>
+        <h2>Here is the list of dinosaurs in your cart:</h2>
         <div class="itemlist">
           <div class="item1">
-            <img src="../src/images/T-Rex.png" />
+            <img src="../src/assets/t-rex.webp" />
             <h3>T-Rex</h3>
             <div class="amount">
               <p>Price: $500</p>
@@ -96,8 +74,45 @@
               <p>Quantity: 2</p>
             </div>
           </div>
+
+          <p>Want to add more dinosaurs to your cart?</p>
+          <button
+            class="shopmore"
+            onclick="window.location.href = 'Shop.html';"
+          >
+            Redirect Me!
+          </button>
         </div>
       </section>
+
+      <section class="pay">
+        <h2>How would you like to pay for your dinosaurs?</h2>
+        <input
+          type="radio"
+          id="creditcard"
+          name="paymenttype"
+          value="creditcard"
+        />
+        <label>Credit Card</label>
+        <br />
+        <input
+          type="radio"
+          id="debitcard"
+          name="paymenttype"
+          value="debitcard"
+        />
+        <label>Debit Card</label>
+        <br />
+        <input type="radio" id="paypal" name="paymenttype" value="paypal" />
+        <label>PayPal</label>
+
+        <h2>Total Amount Due: $1000.00</h2>
+        <button class="paybutton">Pay Now</button>
+      </section>
     </main>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
   </body>
 </html>
