@@ -1,3 +1,5 @@
+
+
 const form = document.getElementById('contact-form');
 const userName = document.getElementById("name");
 const userEmail = document.getElementById("email");
@@ -19,7 +21,9 @@ form.addEventListener('submit', (e) => {
     if (userEmail.value.trim() === "") {
         showError(userEmail, "Please enter your email!");
         isValid = false;
-    } else if (!validateEmail(userEmail.value)) {
+    } 
+    else if (!validateEmail(userEmail.value)) {
+    
         showError(userEmail, "Please enter a valid email address!");
         isValid = false;
     }
