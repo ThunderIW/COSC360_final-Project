@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="CSS/signIn.css" />
+    <link rel="stylesheet" href="CSS/login.css" />
     <script src="scripts/profileDropDown.js" defer></script>
     <script src="scripts/validateLogin.js" defer></script>
   </head>
@@ -13,7 +13,11 @@
     <nav>
       <div class="nav-container">
         <div class="logo">
-          <img src="assets/dinosaur.png" alt="Company Logo" width="40" />
+          <img
+            src="../src/assets/logos/dinosaur.png"
+            alt="Company Logo"
+            width="40"
+          />
         </div>
 
         <div class="profile-container">
@@ -34,11 +38,11 @@
 
         <form id="loginform" method="POST" novalidate>
           <div class="form-group">
-            <label for="username"> Username</label>
+            <label for="email"> Email</label>
             <input
-              type="text"
-              id="username"
-              name="username"
+              type="email"
+              id="email"
+              name="email"
               placeholder="Enter username"
               required
             />
@@ -47,7 +51,7 @@
           <div class="form-group">
             <label for="password">Password</label>
             <input
-              type="text"
+              type="password"
               id="password"
               name="password"
               placeholder="Enter password"

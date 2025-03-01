@@ -1,15 +1,37 @@
 document
-  .getElementById("loginform")
+  .getElementById("signupform")
   .addEventListener("submit", function (event) {
     event.preventDefault();
     submission();
   });
 
 function verify() {
-  let email = document.forms["loginform"]["email"].value;
-  let password = document.forms["loginform"]["password"].value;
+  let firstName = document.forms["signupform"]["firstname"].value;
+  let lastName = document.forms["signupform"]["lastname"].value;
+  let email = document.forms["signupform"]["email"].value;
+  let password = document.forms["signupform"]["password"].value;
 
-  if (!verifyEmail(email) || email == "" || password == "") {
+  if (
+    firstName == "" ||
+    lastName == "" ||
+    !verifyEmail(email) ||
+    email == "" ||
+    password == ""
+  ) {
+    if (firstName == "") {
+      errorPresent(
+        document.forms["signupform"]["firstname"],
+        "You need to enter your First Name!"
+      );
+    }
+
+    if (lastName == "") {
+      errorPresent(
+        document.forms["signupform"]["lastname"],
+        "You need to enter your Last Name!"
+      );
+    }
+
     if (email == "") {
       errorPresent(
         document.forms["loginform"]["email"],
@@ -19,15 +41,15 @@ function verify() {
 
     if (!verifyEmail(email)) {
       errorPresent(
-        document.forms["loginform"]["email"],
-        "You need to enter a valid email!"
+        document.forms["signupform"]["email"],
+        "You need to enter your Email!"
       );
     }
 
     if (password == "") {
       errorPresent(
-        document.forms["loginform"]["password"],
-        "You need to enter your password!"
+        document.forms["signupform"]["password"],
+        "You need to enter your Password!"
       );
     }
     return false;
@@ -57,7 +79,7 @@ function submission() {
   if (!verify()) {
     return;
   }
-  alert("You have been logged in!");
-  document.forms["loginform"].reset();
+  alert("You have signed up!");
+  document.forms["signupform"].reset();
   window.location.href = "../src/homePage.html";
 }

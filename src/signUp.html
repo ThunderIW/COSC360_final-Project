@@ -4,13 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
+    <link rel="stylesheet" href="CSS/signUp.css" />
+    <script src="scripts/validateSignUp.js" defer></script>
   </head>
   <body>
     <!-- Navbar -->
     <nav>
       <div class="nav-container">
         <div class="logo">
-          <img src="assets/dinosaur.png" alt="Company Logo" width="40" />
+          <img
+            src="../src/assets/logos/dinosaur.png"
+            alt="Company Logo"
+            width="40"
+          />
         </div>
 
         <div class="profile-container">
@@ -26,17 +32,39 @@
 
     <main>
       <section class="signup">
-        <h2>Welcome to Jurassic Care!</h2>
+        <h2>Create your account here</h2>
 
         <form id="signupform" method="POST" novalidate>
           <p>Fill in the form!</p>
           <div class="form-group">
-            <label for="username"> Username</label>
+            <label for="firstname"> First Name</label>
             <input
               type="text"
-              id="username"
-              name="username"
-              placeholder="Enter username"
+              id="firstname"
+              name="firstname"
+              placeholder="Enter First Name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="username"> Last Name</label>
+            <input
+              type="text"
+              id="lastname"
+              name="lastname"
+              placeholder="Enter Last Name"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="username"> Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Enter Email"
               required
             />
           </div>
@@ -44,17 +72,17 @@
           <div class="form-group">
             <label for="password">Password</label>
             <input
-              type="text"
+              type="password"
               id="password"
               name="password"
-              placeholder="Enter password"
+              placeholder="Enter Password"
               required
             />
           </div>
-          <button type="submit" class="submit">Log In</button>
-          <div class="account-creation">
-            <p>Don't have an account?</p>
-            <a href="signUp.html">Create an account here!</a>
+          <button type="submit" class="submit">Create Account</button>
+          <div class="login">
+            <p>Already have an account?</p>
+            <a href="login.html">Login here!</a>
           </div>
         </form>
       </section>

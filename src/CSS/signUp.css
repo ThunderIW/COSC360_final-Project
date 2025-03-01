@@ -1,0 +1,287 @@
+/* General styles */
+body {
+  background-color: #f3f4f6;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+nav {
+  background-color: #1f2937;
+  padding: 10px 0;
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-links a {
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.nav-links a:hover {
+  background-color: #374151;
+  color: white;
+  transform: scale(1.05);
+}
+
+.active {
+  background-color: #111827;
+  color: white;
+}
+
+/* Profile Dropdown */
+.profile-container {
+  position: relative;
+}
+
+.profile-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-button:hover {
+  transform: scale(1.1);
+}
+
+.profile-button img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  flex-direction: column;
+  width: 150px;
+  z-index: 10;
+  display: none; /* Hidden by default */
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* This class will be toggled via JavaScript */
+.dropdown-menu.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #333;
+  padding: 10px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f3f3f3;
+}
+
+/* Hero Section */
+.hero {
+  background-color: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 48px;
+  color: #111827;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #6b7280;
+  margin-bottom: 20px;
+}
+
+.hero a {
+  display: inline-block;
+  background-color: #4f46e5;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hero a:hover {
+  background-color: #4338ca;
+  transform: scale(1.05);
+}
+
+/* Features Section */
+.features {
+  background-color: #f3f4f6;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.features h2 {
+  font-size: 30px;
+  color: #111827;
+  margin-bottom: 20px;
+}
+
+.feature-item {
+  background: white;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.feature-item:hover {
+  transform: translateY(-5px);
+}
+
+.feature-item h3 {
+  font-size: 20px;
+  color: #111827;
+}
+
+.feature-item p {
+  font-size: 16px;
+  color: #6b7280;
+}
+
+/* CTA Section */
+.cta {
+  background-color: #4f46e5;
+  color: white;
+  text-align: center;
+  padding: 50px 20px;
+}
+
+.cta h2 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.cta p {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.cta a {
+  background-color: white;
+  color: #4f46e5;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.cta a:hover {
+  background-color: #e5e7eb;
+  transform: scale(1.05);
+}
+
+/* Contact Form Section */
+.signup {
+  background-color: white;
+  max-width: 650px;
+  margin: 50px auto;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.signup .form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.signup label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.signup input,
+.signup textarea {
+  width: 100%;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.signup textarea {
+  resize: vertical;
+}
+
+.signup button {
+  background-color: #4f46e5;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.signup button:hover {
+  background-color: #4338ca;
+}
+
+/* Footer */
+footer {
+  background-color: #1f2937;
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  transition: background-color 0.3s ease;
+}
+
+footer:hover {
+  background-color: #374151;
+}
+
+.login {
+  text-align: center;
+}
+
+.login p,
+a {
+  position: relative;
+}
+
+/* Error Handling */
+
+.error {
+  color: red;
+  padding: 10px;
+  border-style: solid;
+}
+
+input:valid + .error {
+  display: none;
+}
