@@ -6,33 +6,29 @@ document
   });
 
 function verify() {
-  let email = document.forms["loginform"]["email"].value;
-  let password = document.forms["loginform"]["password"].value;
+  let email = document.forms["loginform"]["email"];
+  let password = document.forms["loginform"]["password"];
+  let emailValue = email.value.trim();
+  let passwordValue = password.value.trim();
+  
+  clearErrors(); // Remove existing error messages before revalidating
 
-  if (!verifyEmail(email) || email == "" || password == "") {
-    if (email == "") {
-      errorPresent(
-        document.forms["loginform"]["email"],
-        "You need to enter your email!"
-      );
-    }
+  let valid = true;
 
-    if (!verifyEmail(email)) {
-      errorPresent(
-        document.forms["loginform"]["email"],
-        "You need to enter a valid email!"
-      );
-    }
-
-    if (password == "") {
-      errorPresent(
-        document.forms["loginform"]["password"],
-        "You need to enter your password!"
-      );
-    }
-    return false;
+  if (emailValue === "") {
+    showError(email, "You need to enter your email!");
+    valid = false;
+  } else if (!verifyEmail(emailValue)) {
+    showError(email, "You need to enter a valid email!");
+    valid = false;
   }
-  return true;
+
+  if (passwordValue === "") {
+    showError(password, "You need to enter your password!");
+    valid = false;
+  }
+
+  return valid;
 }
 
 function verifyEmail(email) {
@@ -40,17 +36,25 @@ function verifyEmail(email) {
   return characters.test(email);
 }
 
-function errorPresent(id, message) {
-  var error = id.nextElementSibling;
-  if (error && error.className == "error") {
-    error.textContent = message;
-  } else {
-    error = document.createTextNode(message);
-    var div = document.createElement("div");
-    div.className = "error";
-    div.appendChild(error);
-    id.parentNode.insertBefore(div, id.nextSibling);
+function showError(inputElement, message) {
+  // Remove previous error messages for this field
+  if (inputElement.nextElementSibling && inputElement.nextElementSibling.classList.contains("error-message")) {
+    inputElement.nextElementSibling.remove();
   }
+
+  // Add red border to input
+  inputElement.classList.add("error-border");
+
+  const errorDiv = document.createElement("div");
+  errorDiv.textContent = message;
+  errorDiv.classList.add("error-message");
+
+  inputElement.insertAdjacentElement("afterend", errorDiv);
+}
+
+function clearErrors() {
+  document.querySelectorAll(".error-message").forEach(el => el.remove());
+  document.querySelectorAll(".error-border").forEach(el => el.classList.remove(".error-border"));
 }
 
 function submission() {
