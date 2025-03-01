@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout</title>
+    <link rel="stylesheet" href="CSS/checkout.css" />
+    <script src="scripts/profileDropDown.js" defer></script>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav>
+      <div class="nav-container">
+        <div class="logo">
+          <img
+            src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+            alt="Company Logo"
+            width="40"
+          />
+        </div>
+        <div class="nav-links">
+          <a href="homePage.html">Home</a>
+          <a href="Shop.html">Shop</a>
+          <a href="#">Projects</a>
+          <a href="Contact.html">Contact us</a>
+          <a href="checkout.html" class="active"> Checkout</a>
+        </div>
+        <div class="profile-container">
+          <button class="profile-button" id="user-menu-button">
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt="User Profile"
+            />
+          </button>
+          <div id="user-dropdown" class="dropdown-menu">
+            <a href="#">Your Profile</a>
+            <a href="#">Settings</a>
+            <a href="#">Sign out</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <main class="checkout">
+      <section class="prompt">
+        <h1>Ready to Checkout?</h1>
+        <h2>Finalize your order right here!</h2>
+      </section>
+
+      <section class="shoppinglist">
+        <h2>Here is the list of dinosaurs in your cart:</h2>
+        <div class="itemlist">
+          <div class="item1">
+            <img src="../src/assets/t-rex.webp" />
+            <h3>T-Rex</h3>
+            <div class="amount">
+              <p>Price: $500</p>
+              <p>Quantity: 1</p>
+            </div>
+          </div>
+          <div class="item2">
+            <img src="../src/images/velociraptor.png" />
+            <h3>Raptor</h3>
+            <div class="amount">
+              <p>Price: $300</p>
+              <p>Quantity: 3</p>
+            </div>
+          </div>
+          <div class="item3">
+            <img src="../src/images/stegosaurus.png" />
+            <h3>Stegosaurus</h3>
+            <div class="amount">
+              <p>Price: $200</p>
+              <p>Quantity: 2</p>
+            </div>
+          </div>
+
+          <p>Want to add more dinosaurs to your cart?</p>
+          <button
+            class="shopmore"
+            onclick="window.location.href = 'Shop.html';"
+          >
+            Redirect Me!
+          </button>
+        </div>
+      </section>
+
+      <section class="pay">
+        <h2>How would you like to pay for your dinosaurs?</h2>
+        <input
+          type="radio"
+          id="creditcard"
+          name="paymenttype"
+          value="creditcard"
+        />
+        <label>Credit Card</label>
+        <br />
+        <input
+          type="radio"
+          id="debitcard"
+          name="paymenttype"
+          value="debitcard"
+        />
+        <label>Debit Card</label>
+        <br />
+        <input type="radio" id="paypal" name="paymenttype" value="paypal" />
+        <label>PayPal</label>
+
+        <h2>Total Amount Due: $1000.00</h2>
+        <button class="paybutton">Pay Now</button>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
+  </body>
+</html>
