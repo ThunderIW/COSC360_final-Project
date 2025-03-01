@@ -276,12 +276,12 @@ a {
 
 /* Error Handling */
 
-.error {
+.error-message {
   color: red;
-  padding: 10px;
-  border-style: solid;
+  padding: 5px
+  
 }
 
-input:valid + .error {
-  display: none;
+.error-border {
+  border: 2px solid red !important;
 }

@@ -62,18 +62,22 @@ function verifyEmail(email) {
   return characters.test(email);
 }
 
-function errorPresent(id, message) {
-  var error = id.nextElementSibling;
-  if (error && error.className == "error") {
-    error.textContent = message;
-  } else {
-    error = document.createTextNode(message);
-    var div = document.createElement("div");
-    div.className = "error";
-    div.appendChild(error);
-    id.parentNode.insertBefore(div, id.nextSibling);
+function errorPresent(inputElement, message) {
+  // Remove previous error messages for this field
+  if (inputElement.nextElementSibling && inputElement.nextElementSibling.classList.contains("error-message")) {
+    inputElement.nextElementSibling.remove();
   }
+
+  // Add red border to input
+  inputElement.classList.add("error-border");
+
+  const errorDiv = document.createElement("div");
+  errorDiv.textContent = message;
+  errorDiv.classList.add("error-message");
+
+  inputElement.insertAdjacentElement("afterend", errorDiv);
 }
+
 
 function submission() {
   if (!verify()) {
@@ -83,3 +87,14 @@ function submission() {
   document.forms["signupform"].reset();
   window.location.href = "../src/homePage.html";
 }
+
+
+let inputs = document.querySelectorAll('input');
+inputs.forEach(input => {
+    input.addEventListener('input', () => {
+        if (input.nextElementSibling && input.nextElementSibling.classList.contains('error-message')) {
+            input.nextElementSibling.remove();
+        }
+        input.classList.remove('error-border');
+    });
+});

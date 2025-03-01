@@ -65,3 +65,14 @@ function submission() {
   document.forms["loginform"].reset();
   window.location.href = "../src/homePage.html";
 }
+
+
+let inputs = document.querySelectorAll('input');
+inputs.forEach(input => {
+    input.addEventListener('input', () => {
+        if (input.nextElementSibling && input.nextElementSibling.classList.contains('error-message')) {
+            input.nextElementSibling.remove();
+        }
+        input.classList.remove('error-border');
+    });
+});
