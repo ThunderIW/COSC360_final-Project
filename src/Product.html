@@ -1,104 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product</title>
-    <link rel="stylesheet" href="CSS/productPage.css">
+    <link rel="stylesheet" href="CSS/productPage.css" />
     <script src="scripts/newsletterEmailValidation.js" defer></script>
     <script src="scripts/profileDropDown.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navbar -->
     <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Company Logo" width="40">
-            </div>
-            <div class="nav-links">
-                <a href="homePage.html">Home</a>
-                <a href="Shop.html" class="active">Shop</a>
-                <a href="about_us.html">About us</a>
-                <a href="Contact.html">Contact us</a>
-            </div>
-            <div class="profile-container">
-                <button class="profile-button" id="user-menu-button">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User Profile">
-                </button>
-                <div id="user-dropdown" class="dropdown-menu">
-                    <a href="Profile.html">Your Profile</a>
-                    <a href="#">Sign out</a>
-                </div>
-            </div>
+      <div class="nav-container">
+        <div class="logo">
+          <img
+            src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+            alt="Company Logo"
+            width="40"
+          />
         </div>
+        <div class="nav-links">
+          <a href="homePage.html">Home</a>
+          <a href="Shop.html" class="active">Shop</a>
+          <a href="about_us.html">About us</a>
+          <a href="Contact.html">Contact us</a>
+        </div>
+        <div class="profile-container">
+          <button class="profile-button" id="user-menu-button">
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt="User Profile"
+            />
+          </button>
+          <div id="user-dropdown" class="dropdown-menu">
+            <a href="Profile.html">Your Profile</a>
+            <a href="signIn.html">Sign out</a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <!-- Product Content -->
-<h2 style="margin-left: 10px;">Product Page</h2>
-<div id="ProductItem">
-    
-    <div id="ProductImage">
-        <img src="assets/t-rex.webp" alt="T-Rex Image" width="300">
-    </div>
-    <div id="ProductDesc">
+    <h2 style="margin-left: 10px">Product Page</h2>
+    <div id="ProductItem">
+      <div id="ProductImage">
+        <img src="assets/t-rex.webp" alt="T-Rex Image" width="300" />
+      </div>
+      <div id="ProductDesc">
         <h3>T-Rex</h3>
         <p id="Price"><strong>Price:</strong> $500</p>
-        <p><strong>Description:</strong> A strong, gentle, well-trained Tyrannosaurus Rex. Perfect for scaring neighbors, guarding your home, or lifting heavy things.</p>
+        <p>
+          <strong>Description:</strong> A strong, gentle, well-trained
+          Tyrannosaurus Rex. Perfect for scaring neighbors, guarding your home,
+          or lifting heavy things.
+        </p>
 
-        
         <div id="Amount">
-            <div id="inputs">
-                <label for="quantity">How many:</label>
-                <input type="number" id="quantity" name="quantity" min="1" value="1">
-                <button>Add to Cart</button>
-                
-            </div>
+          <div id="inputs">
+            <label for="quantity">How many:</label>
+            <input
+              type="number"
+              id="quantity"
+              name="quantity"
+              min="1"
+              value="1"
+            />
+            <button>Add to Cart</button>
+          </div>
         </div>
         <div id="review">
-            <h4>Provide Feedback / Review this Dinosaur</h4>
-            <textarea placeholder="Write your review here..."></textarea>
-            <button type="submit" id="submitReview">Submit Review</button>
+          <h4>Provide Feedback / Review this Dinosaur</h4>
+          <textarea placeholder="Write your review here..."></textarea>
+          <button type="submit" id="submitReview">Submit Review</button>
         </div>
+      </div>
     </div>
-</div>
 
-<div id='Reviews'>
-    <h3>Latest Reviews</h3>
-    <div class="r-message">
-        <img src="review1.jpg" alt="Sally X Review Photo" width="100">
+    <div id="Reviews">
+      <h3>Latest Reviews</h3>
+      <div class="r-message">
+        <img src="review1.jpg" alt="Sally X Review Photo" width="100" />
         <p><strong>Amazing service! - 5 Stars</strong></p>
-        <p>"From the moment I placed my order, I felt like a VIP. The delivery team even taught me how to command my T-Rex! Now, my backyard is the talk of the neighborhood. 10/10 would recommend!" - <em>By Sally X</em></p>
-    </div>
-    <div class="r-message">
-        <img src="review2.jpg" alt="Jimmy Firecracker Review Photo" width="100">
+        <p>
+          "From the moment I placed my order, I felt like a VIP. The delivery
+          team even taught me how to command my T-Rex! Now, my backyard is the
+          talk of the neighborhood. 10/10 would recommend!" -
+          <em>By Sally X</em>
+        </p>
+      </div>
+      <div class="r-message">
+        <img
+          src="review2.jpg"
+          alt="Jimmy Firecracker Review Photo"
+          width="100"
+        />
         <p><strong>I love my terrifying looking baby! - 4 Stars</strong></p>
-        <p>"Writing review live from this tree. My terrifying looking adorable baby accidentally smashed the roof of my house. My dog mysteriously disappeared the day I got my delivery, but I have never had a more cutsie pet!" - <em>By Jimmy Firecracker</em></p>
+        <p>
+          "Writing review live from this tree. My terrifying looking adorable
+          baby accidentally smashed the roof of my house. My dog mysteriously
+          disappeared the day I got my delivery, but I have never had a more
+          cutsie pet!" - <em>By Jimmy Firecracker</em>
+        </p>
+      </div>
+      <div class="r-message">
+        <img
+          src="review3.jpg"
+          alt="WhiskersTheWonderCat Review Photo"
+          width="100"
+        />
+        <p>
+          <strong
+            >Revolutionary! Takes the lead in assistance! - 5 Stars</strong
+          >
+        </p>
+        <p>
+          "Finally, a pet that can fetch my groceries in one bite! My T-Rex also
+          doubles as an incredible deterrent against door-to-door salesmen. My
+          productivity has skyrocketed!" - <em>By WhiskersTheWonderCat</em>
+        </p>
+      </div>
     </div>
-    <div class="r-message">
-        <img src="review3.jpg" alt="WhiskersTheWonderCat Review Photo" width="100">
-        <p><strong>Revolutionary! Takes the lead in assistance! - 5 Stars</strong></p>
-        <p>"Finally, a pet that can fetch my groceries in one bite! My T-Rex also doubles as an incredible deterrent against door-to-door salesmen. My productivity has skyrocketed!" - <em>By WhiskersTheWonderCat</em></p>
+
+    <h3 id="newsletterHeader">Follow the Trend with Our Newsletter</h3>
+    <div id="Newsletter">
+      <label for="email">Email:</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Enter your email"
+      />
+      <span id="emailError" class="error-message"></span>
+      <!-- Inline Error Message -->
+      <button id="newsletterSubmit" type="submit">Submit</button>
     </div>
-</div>
 
-<h3 id="newsletterHeader">Follow the Trend with Our Newsletter</h3>
-<div id="Newsletter">
-   
-    <label for="email">Email:</label>
-    <input type="email" id="email" name="email" placeholder="Enter your email">
-    <span id="emailError" class="error-message"></span> <!-- Inline Error Message -->
-    <button id="newsletterSubmit" type="submit">Submit</button>
-</div>
-
-<div class="socials">
-<img src="assets/email_16.png">
-<img src="assets/facebook_16.png">
-<img src="assets/twitter_16.png">
-</div>
+    <div class="socials">
+      <img src="assets/email_16.png" />
+      <img src="assets/facebook_16.png" />
+      <img src="assets/twitter_16.png" />
+    </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Your Company. All rights reserved.</p>
+      <p>&copy; 2025 Your Company. All rights reserved.</p>
     </footer>
-</body>
+  </body>
 </html>

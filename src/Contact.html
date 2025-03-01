@@ -1,70 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact</title>
-    <link rel="stylesheet" href="CSS/contactPage.css">
+    <link rel="stylesheet" href="CSS/contactPage.css" />
     <script src="scripts/profileDropDown.js" defer></script>
     <script src="scripts/formValidation.js" defer></script>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navbar -->
     <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500" alt="Company Logo" width="40">
-            </div>
-            <div class="nav-links">
-                <a href="homePage.html">Home</a>
-                <a href="Shop.html">Shop</a>
-                <a href="About_us.html">About us</a>
-                <a href="Contact.html" class="active">Contact us</a>
-            </div>
-            <div class="profile-container">
-                <button class="profile-button" id="user-menu-button">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User Profile">
-                </button>
-                <div id="user-dropdown" class="dropdown-menu">
-                    <a href="Profile.html">Your Profile</a>
-                    <a href="#">Sign out</a>
-                </div>
-            </div>
+      <div class="nav-container">
+        <div class="logo">
+          <img
+            src="https://tailwindui.com/plus-assets/img/logos/mark.svg?color=indigo&shade=500"
+            alt="Company Logo"
+            width="40"
+          />
         </div>
+        <div class="nav-links">
+          <a href="homePage.html">Home</a>
+          <a href="Shop.html">Shop</a>
+          <a href="About_us.html">About us</a>
+          <a href="Contact.html" class="active">Contact us</a>
+        </div>
+        <div class="profile-container">
+          <button class="profile-button" id="user-menu-button">
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt="User Profile"
+            />
+          </button>
+          <div id="user-dropdown" class="dropdown-menu">
+            <a href="Profile.html">Your Profile</a>
+            <a href="signIn.html">Sign out</a>
+          </div>
+        </div>
+      </div>
     </nav>
 
     <!-- Contact Section -->
     <header class="hero">
-        <h1>Contact Us</h1>
-        <p>We would love to hear from you. Fill out the form below to get in touch.</p>
+      <h1>Contact Us</h1>
+      <p>
+        We would love to hear from you. Fill out the form below to get in touch.
+      </p>
     </header>
 
     <section class="contact-form">
-        <form id="contact-form" method="POST">
-            <div class="form-group">
-                <label for="name">Full Name</label>
-                <input type="text" name="name" id="name">
-            </div>
-            <div class="form-group">
-                <label for="email">Email ✉️</label>
-                <input type="text" name="email" id="email">
-            </div>
-            <div class="form-group">
-                <label for="message">Message 💬</label>
-                <textarea name="message" id="message" rows="4"></textarea>
-            </div>
-            <div class="form-group">
-                <label for="phone">Phone Number 📞</label>
-                <input placeholder="123-456-789" type="tel" name="phone" id="phone">
-            </div>
+      <form id="contact-form" method="POST">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <input type="text" name="name" id="name" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email ✉️</label>
+          <input type="text" name="email" id="email" />
+        </div>
+        <div class="form-group">
+          <label for="message">Message 💬</label>
+          <textarea name="message" id="message" rows="4"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number 📞</label>
+          <input placeholder="123-456-789" type="tel" name="phone" id="phone" />
+        </div>
 
-            <button type="submit">Send Message</button>
-        </form>
+        <button type="submit">Send Message</button>
+      </form>
     </section>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Your Company. All rights reserved.</p>
+      <p>&copy; 2025 Your Company. All rights reserved.</p>
     </footer>
-</body>
+  </body>
 </html>
