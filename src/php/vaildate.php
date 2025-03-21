@@ -1,4 +1,7 @@
 <?php
+session_start();
+
+$Reg_done=false;
 include_once('SeverConfigs.php');
 if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['password'])&& isset($_POST['email'])) {
     $firstName = $_POST['firstname'];
@@ -6,7 +9,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['firstname']) && isset($
     $password = $_POST['password'];
     $email = $_POST['email'];
     try{
-    $SQL="INSERT INTO USERS(firstName,lastName,password,email) VALUES(?,?,?,?) ";
+    $SQL="INSERT INTO users(firstName,lastName,password,email) VALUES(?,?,?,?) ";
 
     $firstNameSan=$pdo->quote($firstName);
     $lastNameSan=$pdo->quote($lastName);
@@ -21,11 +24,21 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['firstname']) && isset($
     $stmt->bindParam(3, $passwordSan, PDO::PARAM_STR);
     $stmt->bindParam(4, $emailSan, PDO::PARAM_STR);
     $stmt->execute();
-    echo "Successfully Registered!";
+    $stmt->closeCursor();
+
     }
     catch(PDOException $e){
-        echo $e->getMessage();
+        die($e->getMessage());
     }
+    $Reg_done=true;
+    echo "";
+    if($Reg_done){
+        $_SESSION["Reg_successful"]= "<p style='color:green;'>Thank you for signing up, $firstName!</p>";
+        header("Location:login.php");
+        exit();
+    }
+
+
 
 
 }
@@ -33,3 +46,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['firstname']) && isset($
 
 
 ?>
+
+
