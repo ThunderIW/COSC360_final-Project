@@ -63,7 +63,7 @@ function submission() {
   }
   alert("You have been logged in!");
   document.forms["loginform"].reset();
-  window.location.href = "../src/homePage.html";
+  //window.location.href = "../homePage.php";
 }
 
 
