@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 ?>
 
 
@@ -8,7 +10,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign Up</title>
-    <link rel="stylesheet" href="signUp.css" />
+    <link rel="stylesheet" href="assets/CSS/signUp.css" />
     <script src="scripts/validateSignUp.js" defer></script>
 </head>
 <body>
@@ -23,7 +25,7 @@
             />
         </div>
         <div class="nav-links">
-            <a href="homePage.html" class="active">Home</a>
+            <a href="homePage.php" class="active">Home</a>
             <a href="Shop.html">Shop</a>
             <a href="About_us.html">About Us</a>
             <a href="Contact.html">Contact us</a>
@@ -34,7 +36,7 @@
                 <img src="../src/assets/emptyIcon.png" alt="User Profile" />
             </button>
             <div id="user-dropdown" class="dropdown-menu">
-                <a href="Profile.html">Your Profile</a>
+                <a href="Profile.php">Your Profile</a>
             </div>
         </div>
     </div>
@@ -44,7 +46,7 @@
     <section class="signup">
         <h2>Create your account here</h2>
 
-        <form id="signupform" method="POST" novalidate action="vaildate.php">
+        <form id="signupform" method="POST" action="vaildate.php" novalidate>
             <p>Fill in the form!</p>
             <div class="form-group">
                 <label for="firstname"> First Name</label>

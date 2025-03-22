@@ -33,7 +33,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['firstname']) && isset($
     $Reg_done=true;
     echo "";
     if($Reg_done){
-        $_SESSION["Reg_successful"]= "<p style='color:green;'>Thank you for signing up, $firstName!</p>";
+        $_SESSION["Reg_successful"]= "<script>alert('hank you for signing up, {$firstName}!');</script>";
+
         header("Location:login.php");
         exit();
     }
@@ -42,6 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['firstname']) && isset($
 
 
 }
+
 
 
 

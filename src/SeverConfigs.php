@@ -1,8 +1,7 @@
 <?php
 
-define("DB_HOST", "localhost");
-define("DB_NAME", "COSC360");
-define('DB_SERVER', 'localhost');
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'businessdb');
 define('DB_USERNAME', 'root');
 define('DB_PASSWORD', '');
 $conn= "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME;
