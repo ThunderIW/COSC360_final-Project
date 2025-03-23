@@ -1,11 +1,14 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
-    <link rel="stylesheet" href="CSS/ProfilePage.css" />
-    <link rel="stylesheet" href="CSS/homePage.css" />
+    <link rel="stylesheet" href="assets/CSS/ProfilePage.css" />
+    <link rel="stylesheet" href="assets/CSS/homePage.css" />
     <!-- Ensure both stylesheets are included -->
     <script src="scripts/profileDropDown.js" defer></script>
   </head>
@@ -14,7 +17,7 @@
       <div class="nav-container">
         <div class="logo">
           <img
-            src="../src/assets/logos/dinosaur.png"
+            src="assets/logos/dinosaur.png"
             alt="Company Logo"
             width="40"
           />
@@ -84,7 +87,7 @@
     </div>
 
     <footer>
-      <p>&copy; 2025 Your Company. All rights reserved.</p>
+      <p>&copy; 2025 Jurassic-Care. All rights reserved.</p>
     </footer>
   </body>
 </html>

@@ -44,7 +44,7 @@ try {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Product</title>
-    <link rel="stylesheet" href="CSS/productPage.css" />
+    <link rel="stylesheet" href="assets/CSS/productPage.css" />
     <script src="scripts/newsletterEmailValidation.js" defer></script>
     <script src="scripts/profileDropDown.js" defer></script>
   </head>
@@ -54,7 +54,7 @@ try {
       <div class="nav-container">
         <div class="logo">
           <img
-            src="../src/assets/logos/dinosaur.png"
+            src="assets/logos/dinosaur.png"
             alt="Company Logo"
             width="40"
           />
@@ -74,7 +74,7 @@ try {
             />
           </button>
           <div id="user-dropdown" class="dropdown-menu">
-            <a href="Profile.html">Your Profile</a>
+            <a href="Profile.php">Your Profile</a>
             <a href="login.html">Sign out</a>
           </div>
         </div>

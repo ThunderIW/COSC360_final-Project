@@ -1,8 +1,9 @@
 document
   .getElementById("signupform")
   .addEventListener("submit", function (event) {
-    event.preventDefault();
-    submission();
+    if(!verify()){
+    event.preventDefault();}
+
   });
 
 function verify() {
@@ -83,9 +84,9 @@ function submission() {
   if (!verify()) {
     return;
   }
-  alert("You have signed up!");
-  document.forms["signupform"].reset();
-  window.location.href = "../src/homePage.html";
+  //alert("You have signed up!");
+  //document.forms["signupform"].reset();
+  //window.location.href = "../homePage.php";
 }
 
 
