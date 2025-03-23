@@ -2,7 +2,7 @@
 $message_to_be_displayed="";
 session_start();
 if(isset($_SESSION["error_message"])){
-    $message_to_be_displayed=$_SESSION["error_message"]; 
+    $message_to_be_displayed=$_SESSION["error_message"];
     unset($_SESSION["error_message"]);
 
 }
@@ -31,7 +31,7 @@ if(isset($_SESSION["error_message"])){
     <div class="nav-container">
         <div class="logo">
             <img
-                src="assets/logos/dinosaur.png"
+                src="../src/assets/logos/dinosaur.png"
                 alt="Company Logo"
                 width="40"
             />
@@ -45,7 +45,7 @@ if(isset($_SESSION["error_message"])){
 
         <div class="profile-container">
             <button class="profile-button" id="user-menu-button">
-                <img src="assets/emptyIcon.png" alt="User Profile" />
+                <img src="../src/assets/emptyIcon.png" alt="User Profile" />
             </button>
             <div id="user-dropdown" class="dropdown-menu">
                 <a href="Profile.php">Your Profile</a>
@@ -109,10 +109,8 @@ if(isset($_SESSION["error_message"])){
                 <a href="login.php">Login here!</a>
             </div>
         </form>
-         <div style="display: flex; justify-content: center; width: 100%;">
-            <p class="signup-success-message" style="color: red ; font-weight: bold">
-		<?php echo $message_to_be_displayed;?>
-	</p>
+        <div style="display: flex; justify-content: center; width: 100%;">
+            <p class="signup-success-message" style="color: red ; font-weight: bold" ><?php echo $message_to_be_displayed;?></p>
         </div>
 
 
