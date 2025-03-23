@@ -1,3 +1,43 @@
+<?php
+session_start();
+
+define('DB_HOST', 'localhost');
+define('DB_NAME', 'iwiessle');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+
+try {
+    $conn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME;
+    $pdo = new PDO($conn, DB_USERNAME, DB_PASSWORD);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+    // Get the 'id' parameter from the URL
+    if (isset($_GET['id'])) {
+        $id = $_GET['id'];
+
+        // Fetch the row from the dino_catalogue table where id matches
+        $query = "SELECT name, price, short_description, long_description, image_address, status, tags FROM dino_catalogue WHERE id = :id";
+        $stmt = $pdo->prepare($query);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        $product = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($product) {
+            $name = $product['name'];
+            $price = $product['price'];
+            $short_description = $product['short_description'];
+            $long_description = $product['long_description'];
+            $image_address = $product['image_address'];
+            $status = $product['status'];
+            $tags = $product['tags'];
+        } else {
+            echo "Product not found.";
+        }
+    } else {
+        echo "No product ID provided.";
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,7 +61,7 @@
         </div>
         <div class="nav-links">
           <a href="homePage.html">Home</a>
-          <a href="Shop.html" class="active">Shop</a>
+          <a href="Shop.php" class="active">Shop</a>
           <a href="about_us.html">About us</a>
           <a href="Contact.html">Contact us</a>
           <a href="checkout.html"> Checkout</a>
@@ -45,15 +85,15 @@
     <h2 style="margin-left: 10px">Product Page</h2>
     <div id="ProductItem">
       <div id="ProductImage">
-        <img src="assets/t-rex.webp" alt="T-Rex Image" width="300" />
+        <!-- Display the image from the database -->
+        <img src="<?php echo $image_address; ?>" alt="Product Image" width="300" />
       </div>
       <div id="ProductDesc">
-        <h3>T-Rex</h3>
-        <p id="Price"><strong>Price:</strong> $500</p>
+        <!-- Display product details from the database -->
+        <h3><?php echo $name; ?></h3>
+        <p id="Price"><strong>Price:</strong> $<?php echo $price; ?></p>
         <p>
-          <strong>Description:</strong> A strong, gentle, well-trained
-          Tyrannosaurus Rex. Perfect for scaring neighbors, guarding your home,
-          or lifting heavy things.
+          <strong>Description:</strong> <?php echo $long_description; ?>
         </p>
 
         <div id="Amount">
@@ -84,9 +124,8 @@
         <p><strong>Amazing service! - 5 Stars</strong></p>
         <p>
           "From the moment I placed my order, I felt like a VIP. The delivery
-          team even taught me how to command my T-Rex! Now, my backyard is the
-          talk of the neighborhood. 10/10 would recommend!" -
-          <em>By Sally X</em>
+          team even taught me how to command my dino! Now, my backyard is the
+          talk of the neighborhood. 10/10 would recommend!" - <em>By Sally X</em>
         </p>
       </div>
       <div class="r-message">
@@ -110,12 +149,11 @@
           width="100"
         />
         <p>
-          <strong
-            >Revolutionary! Takes the lead in assistance! - 5 Stars</strong
-          >
+          <strong>
+            Revolutionary! Takes the lead in assistance! - 5 Stars</strong>
         </p>
         <p>
-          "Finally, a pet that can fetch my groceries in one bite! My T-Rex also
+          "Finally, a pet that can fetch my groceries in one bite! My dinosaur also
           doubles as an incredible deterrent against door-to-door salesmen. My
           productivity has skyrocketed!" - <em>By WhiskersTheWonderCat</em>
         </p>
@@ -148,3 +186,9 @@
     </footer>
   </body>
 </html>
+
+<?php
+} catch (PDOException $e) {
+    echo "Connection failed: " . $e->getMessage();
+}
+?>
