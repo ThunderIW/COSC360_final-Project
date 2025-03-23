@@ -1,18 +1,3 @@
-<?php
-session_start();
-$message_to_be_displayed="";
-if (isset($_SESSION["Reg_successful"])){
-    $message=$_SESSION["Reg_successful"];
-    $message_to_be_displayed=$message;
-
-
-}
-
-
-
-
-
-?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -28,11 +13,7 @@ if (isset($_SESSION["Reg_successful"])){
     <nav>
       <div class="nav-container">
         <div class="logo">
-          <img
-            src="../src/assets/logos/dinosaur.png"
-            alt="Company Logo"
-            width="40"
-          />
+          <img src="assets/logos/dinosaur.png" alt="Company Logo" width="40" />
         </div>
         <div class="nav-links">
           <a href="homePage.php" class="active">Home</a>
@@ -43,7 +24,7 @@ if (isset($_SESSION["Reg_successful"])){
 
         <div class="profile-container">
           <button class="profile-button" id="user-menu-button">
-            <img src="../src/assets/emptyIcon.png" alt="User Profile" />
+            <img src="assets/emptyIcon.png" alt="User Profile" />
           </button>
           <div id="user-dropdown" class="dropdown-menu">
             <a href="Profile.php">Your Profile</a>
