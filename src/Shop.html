@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <link rel="stylesheet" href="assets/CSS/shopPage.css">
+    <script src="scripts/profileDropDown.js" defer></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+          <img
+            src="assets/logos/dinosaur.png"
+            alt="Company Logo"
+            width="40"
+          />
+        </div>
+            <div class="nav-links">
+                <a href="homePage.php">Home</a>
+                <a href="Shop.html" class="active">Shop</a>
+                <a href="About_us.php">About Us</a>
+                <a href="Contact.php">Contact us</a>
+                <a href="checkout.html"> Checkout</a>
+            </div>
+            
+            <div class="profile-container">
+                <button class="profile-button" id="user-menu-button">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="User Profile">
+                </button>
+                <div id="user-dropdown" class="dropdown-menu">
+                    <a href="Profile.php">Your Profile</a>
+                    <a href="login.html">Sign out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Bar -->
+    <div class="search-bar-container">
+        <input type="text" placeholder="Search products..." id="search-input">
+        <button type="submit" id="search-button">Search</button>
+    </div>
+
+    <!-- Shop Content -->
+    <div class="shop-container">
+        <aside class="sidebar">
+            <h2>Filters</h2>
+            <h3>Price</h3>
+            <input type="range" class="price-range">
+            <p>between $1-$100</p>
+            <h3>Categories</h3>
+            <ul>
+                <li><input type="checkbox"> Accessories</li>
+                <li><input type="checkbox"> Clothing</li>
+                <li><input type="checkbox"> Electronics</li>
+            </ul>
+        </aside>
+
+        <section class="products">
+            <h2>Our Products</h2>
+            <a href="placeholder.html" class="product-link">
+            <div class="product-grid">
+                <div class="product">
+                    <img src="assets/velociraptor.png">
+                    <h3>Raptor</h3>
+                    <p>$300</p>
+                </div>
+                <a href="placeholder.html" class="product-link">
+                <div class="product">
+                    <img src="assets/stegosaurus.png">
+                    <h3>Stegosaurus</h3>
+                    <p>$200</p>
+                </div>
+                <a href="Product.php" class="product-link">
+                <div class="product">
+                    <img src="assets/t-rex.webp">
+                    <h3>T-rex</h3>
+                    <p>$500</p>
+                </div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
+</body>
+</html>
