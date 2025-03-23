@@ -1,10 +1,25 @@
+<?php
+session_start();
+$message_to_be_displayed="";
+if (isset($_SESSION["Reg_successful"])){
+    $message=$_SESSION["Reg_successful"];
+    $message_to_be_displayed=$message;
+
+
+}
+
+
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
-    <link rel="stylesheet" href="CSS/login.css" />
+    <link rel="stylesheet" href="assets/CSS/login.css" />
     <script src="scripts/profileDropDown.js" defer></script>
     <script src="scripts/validateLogin.js" defer></script>
   </head>
@@ -20,7 +35,7 @@
           />
         </div>
         <div class="nav-links">
-          <a href="homePage.html" class="active">Home</a>
+          <a href="homePage.php" class="active">Home</a>
           <a href="Shop.html">Shop</a>
           <a href="About_us.html">About Us</a>
           <a href="Contact.html">Contact us</a>
@@ -31,7 +46,7 @@
             <img src="../src/assets/emptyIcon.png" alt="User Profile" />
           </button>
           <div id="user-dropdown" class="dropdown-menu">
-            <a href="Profile.html">Your Profile</a>
+            <a href="Profile.php">Your Profile</a>
           </div>
         </div>
       </div>
@@ -42,12 +57,7 @@
         <h2>Welcome to Jurassic Care!</h2>
         <p>Feel free to login or create a new account!</p>
 
-        <form
-          id="loginform"
-          action="../src/Php/login.php"
-          method="POST"
-          novalidate
-        >
+        <form id="loginform" method="POST" novalidate>
           <div class="form-group">
             <label for="email"> Email</label>
             <input
@@ -72,9 +82,16 @@
           <button type="submit" class="submit">Log In</button>
           <div class="account-creation">
             <p>Don't have an account?</p>
-            <a href="signUp.html">Create an account here!</a>
+            <a href="signup.php">Create an account here!</a>
           </div>
         </form>
+        <div style="display: flex; justify-content: center; width: 100%">
+          <p>
+            <?php echo $message_to_be_displayed;
+                session_unset();
+                ?>
+          </p>
+        </div>
       </section>
     </main>
 

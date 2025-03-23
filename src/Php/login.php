@@ -13,7 +13,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_PO
         $stmt->bindParam(1, $emailSan, PDO::PARAM_STR);
         $results->execute();
 
-        while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $result->fetch()) {
             if (trim("'", $row['email']) == $emailSan && trim("'", $row['password']) == $passwordSan) {
                 $_SESSION['email'] = $emailSan;
                 header('Location: homePage.html');
