@@ -1,9 +1,16 @@
 <?php
 session_start();
 $message_to_be_displayed="";
+
 if (isset($_SESSION["Reg_successful"])){
     $message=$_SESSION["Reg_successful"];
     $message_to_be_displayed=$message;
+    unset($_SESSION["Reg_successful"]);
+
+
+}
+if(isset($_SESSION["error_message"])){
+    header("Location:signup.php");
 
 
 }
@@ -22,6 +29,7 @@ if (isset($_SESSION["Reg_successful"])){
     <link rel="stylesheet" href="assets/CSS/login.css" />
     <script src="scripts/profileDropDown.js" defer></script>
     <script src="scripts/validateLogin.js" defer></script>
+    <script src="scripts/autoHideSign&IN&OUT.js" defer></script>
 </head>
 <body>
 <!-- Navbar -->
@@ -29,7 +37,7 @@ if (isset($_SESSION["Reg_successful"])){
     <div class="nav-container">
         <div class="logo">
             <img
-                src="../src/assets/logos/dinosaur.png"
+                src="assets/logos/dinosaur.png"
                 alt="Company Logo"
                 width="40"
             />
@@ -43,10 +51,10 @@ if (isset($_SESSION["Reg_successful"])){
 
         <div class="profile-container">
             <button class="profile-button" id="user-menu-button">
-                <img src="../src/assets/emptyIcon.png" alt="User Profile" />
+                <img src="assets/emptyIcon.png" alt="User Profile" />
             </button>
             <div id="user-dropdown" class="dropdown-menu">
-                <a href="Profile.php">Your Profile</a>
+            
             </div>
         </div>
     </div>
@@ -86,9 +94,9 @@ if (isset($_SESSION["Reg_successful"])){
             </div>
         </form>
         <div style="display: flex; justify-content: center; width: 100%;">
-            <p ><?php echo $message_to_be_displayed;
-                session_unset();
-                ?></p>
+            <p class="signup-success-message" style="color: green ; font-weight: bold">
+		<?php echo $message_to_be_displayed;?>
+	</p>
         </div>
 
 
