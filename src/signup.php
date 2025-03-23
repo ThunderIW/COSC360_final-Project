@@ -31,7 +31,7 @@ if(isset($_SESSION["error_message"])){
     <div class="nav-container">
         <div class="logo">
             <img
-                src="../src/assets/logos/dinosaur.png"
+                src="assets/logos/dinosaur.png"
                 alt="Company Logo"
                 width="40"
             />
@@ -45,7 +45,7 @@ if(isset($_SESSION["error_message"])){
 
         <div class="profile-container">
             <button class="profile-button" id="user-menu-button">
-                <img src="../src/assets/emptyIcon.png" alt="User Profile" />
+                <img src="assets/emptyIcon.png" alt="User Profile" />
             </button>
             <div id="user-dropdown" class="dropdown-menu">
                 <a href="Profile.php">Your Profile</a>
