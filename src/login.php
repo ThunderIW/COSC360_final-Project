@@ -1,5 +1,8 @@
 <?php
 session_start();
+include_once("SeverConfigs.php");
+
+
 $message_to_be_displayed="";
 
 if (isset($_SESSION["Reg_successful"])){
@@ -19,6 +22,11 @@ if(isset($_SESSION["error_message"])){
 
 
 
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +35,8 @@ if(isset($_SESSION["error_message"])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login</title>
     <link rel="stylesheet" href="assets/CSS/login.css" />
+    <script src="scripts/vaildateLogin.js" defer></script>
     <script src="scripts/profileDropDown.js" defer></script>
-    <script src="scripts/validateLogin.js" defer></script>
     <script src="scripts/autoHideSign&IN&OUT.js" defer></script>
 </head>
 <body>
@@ -37,7 +45,7 @@ if(isset($_SESSION["error_message"])){
     <div class="nav-container">
         <div class="logo">
             <img
-                src="assets/logos/dinosaur.png"
+                src="../src/assets/logos/dinosaur.png"
                 alt="Company Logo"
                 width="40"
             />
@@ -51,10 +59,10 @@ if(isset($_SESSION["error_message"])){
 
         <div class="profile-container">
             <button class="profile-button" id="user-menu-button">
-                <img src="assets/emptyIcon.png" alt="User Profile" />
+                <img src="../src/assets/emptyIcon.png" alt="User Profile" />
             </button>
             <div id="user-dropdown" class="dropdown-menu">
-            
+                <a href="Profile.php">Your Profile</a>
             </div>
         </div>
     </div>
@@ -65,7 +73,7 @@ if(isset($_SESSION["error_message"])){
         <h2>Welcome to Jurassic Care!</h2>
         <p>Feel free to login or create a new account!</p>
 
-        <form id="loginform" method="POST" novalidate>
+        <form id="loginform" method="POST" novalidate action="login.php">
             <div class="form-group">
                 <label for="email"> Email</label>
                 <input
@@ -94,9 +102,7 @@ if(isset($_SESSION["error_message"])){
             </div>
         </form>
         <div style="display: flex; justify-content: center; width: 100%;">
-            <p class="signup-success-message" style="color: green ; font-weight: bold">
-		<?php echo $message_to_be_displayed;?>
-	</p>
+            <p class="signup-success-message"  style="color: green ; font-weight: bold"><?php echo $message_to_be_displayed;?></p>
         </div>
 
 
@@ -112,4 +118,49 @@ if(isset($_SESSION["error_message"])){
 </footer>
 </body>
 </html>
+
+
+<?php
+include_once("SeverConfigs.php");
+if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_POST["password"])){
+    $email = $_POST["email"];
+    $password = $_POST["password"];
+    $passwordSan=$pdo->quote($password);
+    $emailSan=$pdo->quote($email);
+    try{
+        $sql="SELECT * FROM users WHERE email=? and password=?";
+        $stmt=$pdo->prepare($sql);
+        $stmt->bindValue(1,$emailSan,PDO::PARAM_STR);
+        $stmt->bindValue(2,$passwordSan,PDO::PARAM_STR);
+        $result=$stmt->execute();
+        $userinfo=$stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (!empty($userinfo)) {
+            $_SESSION["login_success"] = "You have successfully logged in!";
+            header("Location: homePage.php"); // Or wherever you want to send them after login
+            exit();
+        }
+
+        if (empty($userinfo)) {
+            $_SESSION["error_message_login"] = "Invalid login credentials!";
+            header("Location: login.php"); // Reload login with error message
+            exit();
+        }
+
+
+
+
+
+
+    }catch(PDOException $e){
+
+    }
+}
+
+
+
+?>
+
+
+
 
