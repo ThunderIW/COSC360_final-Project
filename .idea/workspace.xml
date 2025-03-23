@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b45ba18b-b570-4b7c-855b-d793c4e72744" name="Changes" comment="" />
+    <list default="true" id="b45ba18b-b570-4b7c-855b-d793c4e72744" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/login.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/signup.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/signup.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/vaildate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/vaildate.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,10 +22,10 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="2ugfHMeG4xxs5ls3UGiWtDnNgAg" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -29,7 +35,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "sign__up",
+    "git-widget-placeholder": "php-signup",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -55,6 +61,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742675050650</updated>
       <workItem from="1742675053088" duration="552000" />
+      <workItem from="1742686651747" duration="2226000" />
     </task>
     <servers />
   </component>

@@ -9,31 +9,39 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['firstname']) && isset($
     $password = $_POST['password'];
     $email = $_POST['email'];
     try{
-    $SQL="INSERT INTO users(firstName,lastName,password,email) VALUES(?,?,?,?) ";
+        $SQL="INSERT INTO users(firstName,lastName,password,email) VALUES(?,?,?,?) ";
 
-    $firstNameSan=$pdo->quote($firstName);
-    $lastNameSan=$pdo->quote($lastName);
-    $passwordSan=$pdo->quote($password);
-    $emailSan=$pdo->quote($email);
+        $firstNameSan=$pdo->quote($firstName);
+        $lastNameSan=$pdo->quote($lastName);
+        $passwordSan=$pdo->quote($password);
+        $emailSan=$pdo->quote($email);
 
 
 
-    $stmt = $pdo->prepare($SQL);
-    $stmt->bindParam(1, $firstNameSan, PDO::PARAM_STR);
-    $stmt->bindParam(2, $lastNameSan, PDO::PARAM_STR);
-    $stmt->bindParam(3, $passwordSan, PDO::PARAM_STR);
-    $stmt->bindParam(4, $emailSan, PDO::PARAM_STR);
-    $stmt->execute();
-    $stmt->closeCursor();
+        $stmt = $pdo->prepare($SQL);
+        $stmt->bindParam(1, $firstNameSan, PDO::PARAM_STR);
+        $stmt->bindParam(2, $lastNameSan, PDO::PARAM_STR);
+        $stmt->bindParam(3, $passwordSan, PDO::PARAM_STR);
+        $stmt->bindParam(4, $emailSan, PDO::PARAM_STR);
+        $stmt->execute();
+        $stmt->closeCursor();
 
     }
     catch(PDOException $e){
-        die($e->getMessage());
+        if ($e->getCode() == 23000) {
+            $_SESSION['error_message'] = "{$email} has been already registered.";
+
+        }
+
+
+
+
+
     }
     $Reg_done=true;
     echo "";
     if($Reg_done){
-        $_SESSION["Reg_successful"]= "<script>alert('thank you for signing up, {$firstName}!');</script>";
+        $_SESSION["Reg_successful"]= "thank you for signing up, {$firstName}!";
 
         header("Location:login.php");
         exit();

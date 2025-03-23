@@ -285,3 +285,13 @@ a {
 .error-border {
   border: 2px solid red !important;
 }
+
+.signup-success-message {
+    opacity: 1;
+    transition: opacity 1s ease;
+}
+
+.signup-success-message.hide {
+    opacity: 0;
+}
+

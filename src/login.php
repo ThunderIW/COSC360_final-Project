@@ -1,6 +1,24 @@
 <?php
 session_start();
-$message=$_SESSION["Reg_successful"]
+$message_to_be_displayed="";
+
+if (isset($_SESSION["Reg_successful"])){
+    $message=$_SESSION["Reg_successful"];
+    $message_to_be_displayed=$message;
+    unset($_SESSION["Reg_successful"]);
+
+
+}
+if(isset($_SESSION["error_message"])){
+    header("Location:signup.php");
+
+
+}
+
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,6 +29,7 @@ $message=$_SESSION["Reg_successful"]
     <link rel="stylesheet" href="assets/CSS/login.css" />
     <script src="scripts/profileDropDown.js" defer></script>
     <script src="scripts/validateLogin.js" defer></script>
+    <script src="scripts/autoHideSign&IN&OUT.js" defer></script>
 </head>
 <body>
 <!-- Navbar -->
@@ -75,9 +94,9 @@ $message=$_SESSION["Reg_successful"]
             </div>
         </form>
         <div style="display: flex; justify-content: center; width: 100%;">
-            <p style="color: green;"><?php echo $message;
-                session_unset();
-                ?></p>
+            <p class="signup-success-message" style="color: green ; font-weight: bold">
+		<?php echo $message_to_be_displayed;?>
+	</p>
         </div>
 
 

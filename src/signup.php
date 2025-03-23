@@ -1,5 +1,16 @@
 <?php
+$message_to_be_displayed="";
 session_start();
+if(isset($_SESSION["error_message"])){
+    $message_to_be_displayed=$_SESSION["error_message"]; 
+    unset($_SESSION["error_message"]);
+
+}
+
+
+
+
+
 
 ?>
 
@@ -12,6 +23,7 @@ session_start();
     <title>Sign Up</title>
     <link rel="stylesheet" href="assets/CSS/signUp.css" />
     <script src="scripts/validateSignUp.js" defer></script>
+    <script src="scripts/autoHideSign&IN&OUT.js" defer></script>
 </head>
 <body>
 <!-- Navbar -->
@@ -94,9 +106,16 @@ session_start();
             <button type="submit" class="submit">Create Account</button>
             <div class="login">
                 <p>Already have an account?</p>
-                <a href="login.html">Login here!</a>
+                <a href="login.php">Login here!</a>
             </div>
         </form>
+         <div style="display: flex; justify-content: center; width: 100%;">
+            <p class="signup-success-message" style="color: red ; font-weight: bold">
+		<?php echo $message_to_be_displayed;?>
+	</p>
+        </div>
+
+
     </section>
 </main>
 
