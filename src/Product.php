@@ -9,6 +9,8 @@ include_once("SeverConfigs.php");
 $userImage =  $_SESSION["user_image"];
 
 
+
+
 try {
     //$conn = "mysql:host=" . DB_HOST . ";dbname=" . DB_NAME;
     //$pdo = new PDO($conn, DB_USERNAME, DB_PASSWORD);
@@ -73,18 +75,19 @@ try {
             <div class="profile-container">
                 <button class="profile-button" id="user-menu-button">
                     <img
-                                src="<?php
-                                if (isset($_SESSION['email'])) {
-                                    // Show logged-in user's image (replace with dynamic one if available)
-                                    echo $userImage; // replace this with DB-fetched one if needed
-                                } else {
-                                    // Show default guest image
-                                    echo 'assets/emptyIcon.png';
-                                }
-                                ?>"
-                                alt="User Profile"
-                        />
-                    </button>
+                            src="<?php
+                            if (isset($_SESSION['email']) && !empty($_SESSION['user_image'])) {
+                                echo 'data:image/png;base64,' . $_SESSION['user_image'];
+                            } else {
+                                echo 'assets/emptyIcon.png';
+                            }
+                            ?>"
+                            alt="User Profile"
+                    />
+
+
+
+                </button>
 
                     <div id="user-dropdown" class="dropdown-menu">
                         <?php if (isset($_SESSION["email"])): ?>

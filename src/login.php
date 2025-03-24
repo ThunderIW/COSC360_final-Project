@@ -72,16 +72,13 @@ if(isset($_SESSION["error_message_login"])){
             <button class="profile-button" id="user-menu-button">
                 <img
                         src="<?php
-                        if (isset($_SESSION['email'])) {
-                            // Show logged-in user's image (replace with dynamic one if available)
-                            echo 'assets/images/user-avatar.png'; // replace this with DB-fetched one if needed
-                        } else {
-                            // Show default guest image
-                            echo 'assets/emptyIcon.png';
-                        }
+                        echo (!empty($_SESSION['user_image']))
+                            ? 'data:image/png;base64,' . $_SESSION['user_image']
+                            : 'assets/emptyIcon.png';
                         ?>"
                         alt="User Profile"
                 />
+
             </button>
 
             <div id="user-dropdown" class="dropdown-menu">
@@ -93,6 +90,8 @@ if(isset($_SESSION["error_message_login"])){
                     <a href="signup.php">Register</a>
                 <?php endif; ?>
             </div>
+
+
         </div>
     </div>
 </nav>

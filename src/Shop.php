@@ -6,7 +6,7 @@ include_once("SeverConfigs.php");
 //define('DB_USERNAME', 'iwiessle');
 //define('DB_PASSWORD', 'iwiessle');
 
-$userImage = isset($_SESSION["user_image"]) ? $_SESSION["user_image"] : "assets/emptyIcon.png";
+
 
 
 
@@ -142,16 +142,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
                 <button class="profile-button" id="user-menu-button">
                     <img
                             src="<?php
-                            if (isset($_SESSION['email'])) {
-                                // Show logged-in user's image (replace with dynamic one if available)
-                                echo  $userImage; // replace this with DB-fetched one if needed
-                            } else {
-                                // Show default guest image
-                                echo 'assets/emptyIcon.png';
-                            }
+                            echo (!empty($_SESSION['user_image']))
+                                ? 'data:image/png;base64,' . $_SESSION['user_image']
+                                : 'assets/emptyIcon.png';
                             ?>"
                             alt="User Profile"
                     />
+
+
+
                 </button>
 
                 <div id="user-dropdown" class="dropdown-menu">

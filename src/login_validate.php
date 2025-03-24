@@ -23,9 +23,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_POS
             $_SESSION["email"] = $userinfo['email'];
             $_SESSION["firstName"] = $userinfo['firstName'];
             $_SESSION["lastName"] = $userinfo['lastName'];
-            $_SESSION["user_image"] = $userinfo["user_image"]
-                ? 'data:image/png;base64,' . base64_encode($userinfo["user_image"])
-                : 'assets/emptyIcon.png';
+            if (!empty($userinfo["user_image"])) {
+                $_SESSION["user_image"] = base64_encode($userinfo["user_image"]);
+            } else {
+                unset($_SESSION["user_image"]); // fallback handled in <img> tag
+            }
+
 
             header("Location: homePage.php"); // Or wherever you want to send them after login
             exit();
