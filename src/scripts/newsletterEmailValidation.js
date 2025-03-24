@@ -23,7 +23,7 @@ document.getElementById("newsletterSubmit").addEventListener("click", (event) =>
 
     // Email is valid, remove error styles and submit form
     userEmail.classList.remove("error-border");
-    alert("Form submitted successfully!");
+    //alert("Form submitted successfully!");
 });
 
 function showError(inputElement, message) {

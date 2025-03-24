@@ -158,3 +158,16 @@ footer:hover {
     
     
 }
+
+.signup-success-message {
+    opacity: 1;
+    transition: opacity 1s ease;
+    font-weight: bold;
+    text-align: center;
+}
+
+.signup-success-message.hide {
+    opacity: 0;
+}
+
+

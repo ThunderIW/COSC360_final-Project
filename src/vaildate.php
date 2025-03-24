@@ -8,13 +8,33 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['firstname']) && isset($
     $lastName = $_POST['lastname'];
     $password = $_POST['password'];
     $email = $_POST['email'];
+
+    if (isset($_FILES['user_image']) && $_FILES['user_image']['error'] === UPLOAD_ERR_OK){
+        $fileTmpPath = $_FILES['user_image']['tmp_name'];
+        $fileType=mime_content_type($_FILES['user_image']['tmp_name']);
+
+        if($fileType=="image/png"){
+            $imageData = file_get_contents($_FILES['user_image']['tmp_name']);
+        }
+        else{
+            $_SESSION['error_message'] = "Only PNG images are allowed.";
+            header("Location: signup.php");
+            exit();
+
+        }
+
+    }else{
+        $imageData = file_get_contents("assets/emptyIcon.png");
+    }
+
+
     try{
-        $SQL="INSERT INTO users(firstName,lastName,password,email) VALUES(?,?,?,?) ";
+        $SQL="INSERT INTO users(firstName,lastName,password,email,user_image) VALUES(?,?,?,?,?) ";
 
         $firstNameSan=$pdo->quote($firstName);
         $lastNameSan=$pdo->quote($lastName);
-        $passwordSan=$pdo->quote($password);
         $emailSan=$pdo->quote($email);
+        $passwordSan=$pdo->quote($password);
 
 
 
@@ -23,6 +43,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['firstname']) && isset($
         $stmt->bindParam(2, $lastNameSan, PDO::PARAM_STR);
         $stmt->bindParam(3, $passwordSan, PDO::PARAM_STR);
         $stmt->bindParam(4, $emailSan, PDO::PARAM_STR);
+        $stmt->bindParam(5, $imageData, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
 
