@@ -175,7 +175,7 @@ if($_SESSION["email"] && isset($_SESSION["firstName"]) && isset($_SESSION["lastN
         <input type="file" name="user_image" id="user_image" accept="image/png"><br><br>
 
         <label for="email">Email:</label><br>
-        <input type="email" name="email" id="email" value=" &nbsp<?php echo htmlspecialchars($userEmailTrimmed); ?>" required><br><br>
+        <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($userEmailTrimmed); ?>" required><br><br>
 
 
 
