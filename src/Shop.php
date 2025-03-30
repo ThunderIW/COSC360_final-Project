@@ -174,10 +174,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
 
 <div class="shop-container">
     <aside class="sidebar">
+<p>Don't know which dino you're looking for? Take our <a href="Quiz.php">quiz</a> to figure out!</p>
         <h2>Filters</h2>
-        <h3>Price</h3>
-        <input type="range" class="price-range">
-        <p>between $1-$100</p>
         <h3>Categories</h3>
         <ul>
             <?php
