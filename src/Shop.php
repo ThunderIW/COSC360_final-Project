@@ -175,9 +175,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
 <div class="shop-container">
     <aside class="sidebar">
         <h2>Filters</h2>
-        <h3>Price</h3>
-        <input type="range" class="price-range">
-        <p>between $1-$100</p>
         <h3>Categories</h3>
         <ul>
             <?php
