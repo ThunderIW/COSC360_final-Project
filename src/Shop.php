@@ -74,6 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,11 +92,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
                 checkbox.addEventListener("change", fetchFilteredDinos);
             });
 
-            searchButton.addEventListener("click", function() {
+            searchButton.addEventListener("click", function () {
                 fetchFilteredDinos(true); // Pass true to indicate a search
             });
 
-            clearSearchButton.addEventListener("click", function() {
+            clearSearchButton.addEventListener("click", function () {
                 searchInput.value = ''; // Clear search input
                 fetchFilteredDinos(false); // Reset to default
             });
@@ -125,29 +126,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
         });
     </script>
 </head>
+
 <body>
-<nav>
-    <div class="nav-container">
-        <div class="logo">
-            <img src="assets/logos/dinosaur.png" alt="Company Logo" width="40" />
-        </div>
-        <div class="nav-links">
-            <a href="homePage.php">Home</a>
-            <a href="Shop.php" class="active">Shop</a>
-            <a href="About_us.php">About Us</a>
-            <a href="Contact.php">Contact us</a>
-            <a href="checkout.html">Checkout</a>
-        </div>
-        <div class="profile-container">
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="assets/logos/dinosaur.png" alt="Company Logo" width="40" />
+            </div>
+            <div class="nav-links">
+                <a href="homePage.php">Home</a>
+                <a href="Shop.php" class="active">Shop</a>
+                <a href="About_us.php">About Us</a>
+                <a href="Contact.php">Contact us</a>
+                <a href="checkout.php">Checkout</a>
+            </div>
+            <div class="profile-container">
                 <button class="profile-button" id="user-menu-button">
-                    <img
-                            src="<?php
-                            echo (!empty($_SESSION['user_image']))
-                                ? 'data:image/png;base64,' . $_SESSION['user_image']
-                                : 'assets/emptyIcon.png';
-                            ?>"
-                            alt="User Profile"
-                    />
+                    <img src="<?php
+                    echo (!empty($_SESSION['user_image']))
+                        ? 'data:image/png;base64,' . $_SESSION['user_image']
+                        : 'assets/emptyIcon.png';
+                    ?>" alt="User Profile" />
 
 
 
@@ -163,55 +162,71 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
                     <?php endif; ?>
                 </div>
             </div>
-    </div>
-</nav>
-
-<div class="search-bar-container">
-    <input type="text" placeholder="Search products..." id="search-input">
-    <button type="submit" id="search-button">Search</button>
-    <button type="button" id="clear-search-button">Clear Search</button>
-</div>
-
-<div class="shop-container">
-    <aside class="sidebar">
-        <h2>Filters</h2>
-        <h3>Price</h3>
-        <input type="range" class="price-range">
-        <p>between $1-$100</p>
-        <h3>Categories</h3>
-        <ul>
-            <?php
-            $tags = ["Companion", "Guard Dino", "Working Dino", "Farm Dino", "Flying", "Aquatic",
-                "Scout Dino", "Smart", "Herbivore", "Gentle", "Search and Rescue", "Fast",
-                "Mobility", "Messenger Dino", "Hunting Dino"];
-            foreach ($tags as $tag): ?>
-                <li>
-                    <input type="checkbox" class="filter-checkbox" value="<?= htmlspecialchars($tag); ?>">
-                    <?= htmlspecialchars($tag); ?>
-                </li>
-            <?php endforeach; ?>
-        </ul>
-    </aside>
-
-    <section class="products">
-        <h2>Our Most Popular Dinos</h2>
-        <div class="product-grid">
-            <?php foreach ($dinos as $dino): ?>
-                <a href="Product.php?id=<?= htmlspecialchars($dino['id']); ?>" class="product-link">
-                    <div class="product">
-                        <img src="<?= htmlspecialchars($dino['image_address']); ?>" alt="<?= htmlspecialchars($dino['name']); ?>">
-                        <h3><?= htmlspecialchars($dino['name']); ?></h3>
-                        <p>$<?= htmlspecialchars($dino['price']); ?></p>
-                        <p><?= htmlspecialchars($dino['short_description']); ?></p>
-                    </div>
-                </a>
-            <?php endforeach; ?>
         </div>
-    </section>
-</div>
+    </nav>
 
-<footer>
-    <p>&copy; 2025 Your Company. All rights reserved.</p>
-</footer>
+    <div class="search-bar-container">
+        <input type="text" placeholder="Search products..." id="search-input">
+        <button type="submit" id="search-button">Search</button>
+        <button type="button" id="clear-search-button">Clear Search</button>
+    </div>
+
+    <div class="shop-container">
+        <aside class="sidebar">
+            <h2>Filters</h2>
+            <h3>Price</h3>
+            <input type="range" class="price-range">
+            <p>between $1-$100</p>
+            <h3>Categories</h3>
+            <ul>
+                <?php
+                $tags = [
+                    "Companion",
+                    "Guard Dino",
+                    "Working Dino",
+                    "Farm Dino",
+                    "Flying",
+                    "Aquatic",
+                    "Scout Dino",
+                    "Smart",
+                    "Herbivore",
+                    "Gentle",
+                    "Search and Rescue",
+                    "Fast",
+                    "Mobility",
+                    "Messenger Dino",
+                    "Hunting Dino"
+                ];
+                foreach ($tags as $tag): ?>
+                    <li>
+                        <input type="checkbox" class="filter-checkbox" value="<?= htmlspecialchars($tag); ?>">
+                        <?= htmlspecialchars($tag); ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+        </aside>
+
+        <section class="products">
+            <h2>Our Most Popular Dinos</h2>
+            <div class="product-grid">
+                <?php foreach ($dinos as $dino): ?>
+                    <a href="Product.php?id=<?= htmlspecialchars($dino['id']); ?>" class="product-link">
+                        <div class="product">
+                            <img src="<?= htmlspecialchars($dino['image_address']); ?>"
+                                alt="<?= htmlspecialchars($dino['name']); ?>">
+                            <h3><?= htmlspecialchars($dino['name']); ?></h3>
+                            <p>$<?= htmlspecialchars($dino['price']); ?></p>
+                            <p><?= htmlspecialchars($dino['short_description']); ?></p>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Your Company. All rights reserved.</p>
+    </footer>
 </body>
+
 </html>
