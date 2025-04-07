@@ -114,19 +114,19 @@ nav {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-.additem .form-group {
+.contact-form .form-group {
   display: flex;
   flex-direction: column;
   margin-bottom: 15px;
 }
 
-.additem label {
+.contact-form label {
   font-weight: bold;
   margin-bottom: 5px;
 }
 
-.additem input,
-.additem textarea {
+.contact-form input,
+.contact-form textarea {
   width: 100%;
   padding-top: 12px;
   padding-bottom: 12px;
@@ -135,11 +135,11 @@ nav {
   font-size: 14px;
 }
 
-.additem textarea {
+.contact-form textarea {
   resize: vertical;
 }
 
-.additem button {
+.contact-form button {
   background-color: #4f46e5;
   color: white;
   padding: 12px;
@@ -151,7 +151,11 @@ nav {
   transition: background-color 0.3s ease;
 }
 
-.additem button:hover {
+.admingroup {
+  margin-left: auto;
+}
+
+.contact-form button:hover {
   background-color: #4338ca;
 }
 

@@ -169,7 +169,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
         <input type="text" placeholder="Search products..." id="search-input">
         <button type="submit" id="search-button">Search</button>
         <button type="button" id="clear-search-button">Clear Search</button>
+
+        <?php
+        if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
+            echo '<form method="GET" action="admin.php">
+            <button type=\"submit\" id=\"search-button\">Create Item</button>
+            </form>';
+        }
+        ?>
+
     </div>
+
+
 
     <div class="shop-container">
         <aside class="sidebar">
