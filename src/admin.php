@@ -14,7 +14,7 @@ $userImage = $_SESSION["user_image"];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin</title>
-    <link rel="stylesheet" href="./assets/CSS/admin.css" />
+    <link rel="stylesheet" href="assets/CSS/admin.css" />
     <script src="scripts/profileDropDown.js" defer></script>
 </head>
 
@@ -75,9 +75,8 @@ $userImage = $_SESSION["user_image"];
                 if (count($rows) === 0) {
                     echo "<h3>There are active users!</h3>";
                 } else {
-                    echo '<div class="table">';
-                    echo "<table border = '1'>";
-                    echo " <tr> 
+                    echo "<table border = '1' > 
+                <tr> 
                 <th>ID</th>
                 <th>FirstName</th>
                 <th>LastName</th>
@@ -98,8 +97,9 @@ $userImage = $_SESSION["user_image"];
                     </td>";
                         echo "</tr>";
 
-                        echo "</table>";
+
                     }
+                    echo "</table>";
                 }
                 ?>
             </div>
