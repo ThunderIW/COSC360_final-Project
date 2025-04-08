@@ -138,6 +138,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
                 <a href="Shop.php" class="active">Shop</a>
                 <a href="About_us.php">About Us</a>
                 <a href="Contact.php">Contact us</a>
+                <?php
+                if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
+                    echo '<a href="admin.php"> Admin</a>';
+                }
+                ?>
                 <a href="checkout.php">Checkout</a>
             </div>
             <div class="profile-container">
@@ -169,15 +174,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
         <input type="text" placeholder="Search products..." id="search-input">
         <button type="submit" id="search-button">Search</button>
         <button type="button" id="clear-search-button">Clear Search</button>
-
-        <?php
-        if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
-            echo '<form method="GET" action="admin.php">
-            <button type=\"submit\" id=\"search-button\">Create Item</button>
-            </form>';
-        }
-        ?>
-
     </div>
 
 

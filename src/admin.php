@@ -14,7 +14,7 @@ $userImage = $_SESSION["user_image"];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin</title>
-    <link rel="stylesheet" href="assets/CSS/admin.css" />
+    <link rel="stylesheet" href="../src/admin.css" />
     <script src="scripts/profileDropDown.js" defer></script>
 </head>
 
@@ -31,14 +31,20 @@ $userImage = $_SESSION["user_image"];
                 <img src="assets/logos/dinosaur.png" alt="Company Logo" width="40" />
             </div>
             <div class="nav-links">
-                <a href="homePage.php" class="active">Home</a>
+                <a href="homePage.php">Home</a>
                 <a href="Shop.php">Shop</a>
                 <a href="About_us.php">About Us</a>
                 <a href="Contact.php">Contact us</a>
+                <?php
+                if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
+                    echo '<a href="admin.php" class="active"> Admin</a>';
+                }
+                ?>
                 <a href="checkout.php"> Checkout</a>
+
             </div>
 
-            <div class="profile-container">
+            <div class=" profile-container">
                 <button class="profile-button" id="user-menu-button">
                     <img src="<?php
                     echo (!empty($_SESSION['user_image']))
@@ -59,29 +65,47 @@ $userImage = $_SESSION["user_image"];
             </div>
     </nav>
 
-    <!-- Features Section -->
-    <section class>
-        <form class="admin">
-            <div class="admingroup">
+    <!-- Deletion, Search and Add Dinosaur Section -->
+    <section class="admin">
+        <form class="adminform">
+            <div class="delete">
                 <h2> List of Users</h2>
+                <div class="searching_users">
+                    <input type="text" name="findUsers" value="<?php if (isset($_GET['findUsers'])) {
+                        echo $_GET['findUsers'];
+                    } ?>" placeholder="Search for users by first name, last name or email address">
+                    <button class="search" type="submit">Filter</button>
+                </div>
+
                 <?php
                 include_once("SeverConfigs.php");
                 $conn = new PDO("mysql:host=localhost;dbname=users", "root", "");
                 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
-                $sql = "SELECT id, firstName, lastName, email FROM users WHERE isAdmin = 0";
-                $userList = $conn->prepare($sql);
-                $userList->execute();
-                $rows = $userList->fetchAll(PDO::FETCH_ASSOC);
+
+                if (isset($_GET['findUsers']) && !empty($_GET['findUsers'])) {
+                    $searchResults = $_GET['findUsers'];
+                    $searchSQL = "SELECT * FROM users WHERE isAdmin = 0 && CONCAT(firstName,' ',lastName,' ',email) LIKE :searchResults";
+                    $searchSQL_running = $conn->prepare($searchSQL);
+                    $searchSQL_running->execute([':searchResults' => '%' . $searchResults . '%']);
+                    $rows = $searchSQL_running->fetchAll(PDO::FETCH_ASSOC);
+
+                } else {
+                    $sql = "SELECT id, firstName, lastName, email FROM users WHERE isAdmin = 0";
+                    $userList = $conn->prepare($sql);
+                    $userList->execute();
+                    $rows = $userList->fetchAll(PDO::FETCH_ASSOC);
+                }
+
                 if (count($rows) === 0) {
                     echo "<h3>There are active users!</h3>";
                 } else {
                     echo "<table border = '1' > 
                 <tr> 
                 <th>ID</th>
-                <th>FirstName</th>
-                <th>LastName</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Email</th>
-                <th>Delete User?</th>
+                <th>Delete User</th>
                 </tr>";
                     foreach ($rows as $eachRow) {
                         echo "<tr>";
@@ -96,14 +120,34 @@ $userImage = $_SESSION["user_image"];
                     </form>
                     </td>";
                         echo "</tr>";
-
-
                     }
                     echo "</table>";
                 }
                 ?>
             </div>
         </form>
+
+
+        <form method="POST" class="add_dino">
+            <h2> Add a Dinosaur!</h2>
+            <div class="add_dino_form_section">
+                <label> ID:</label>
+                <input type="int"></input>
+                <label> Name:</label>
+                <input type="text"></input>
+                <label> Short Description:</label>
+                <input type="text"></input>
+                <label> Price:</label>
+                <input type="text"></input>
+                <label> image_address:</label>
+                <textarea></textarea>
+                <label> Status:</label>
+                <input type="text"></input>
+                <label> Tags:</label>
+                <input type="text"></input>
+            </div>
+
+        </form>';
 
     </section>
 

@@ -41,7 +41,13 @@ $userImage = $_SESSION["user_image"];
                 <a href="Shop.php">Shop</a>
                 <a href="About_us.php">About Us</a>
                 <a href="Contact.php">Contact us</a>
+                <?php
+                if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
+                    echo '<a href="admin.php"> Admin</a>';
+                }
+                ?>
                 <a href="checkout.php"> Checkout</a>
+
             </div>
 
             <div class="profile-container">
