@@ -147,6 +147,3 @@ if(isset($_SESSION["error_message_login"])){
 </footer>
 </body>
 </html>
-
-
-

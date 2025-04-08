@@ -4,14 +4,8 @@ if(isset($_SESSION["login_success"])){
     $alertToSend=$_SESSION["login_success"];
     unset($_SESSION["login_success"]);
 }
-
-
 $userImage =  $_SESSION["user_image"];
 ?>
-
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">

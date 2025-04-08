@@ -5,12 +5,7 @@ if (isset($_SESSION["user_image"])) {
 
 }
 $userImage =  $_SESSION["user_image"]
-
-
-
 ?>
-
-
 
 <!DOCTYPE html>
 <html lang="en">
