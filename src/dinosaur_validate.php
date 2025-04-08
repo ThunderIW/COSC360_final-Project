@@ -2,9 +2,8 @@
 session_start();
 
 $Reg_done = false;
-include_once('SeverConfigs.php');
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']) && isset($_POST['name']) && isset($_POST['short_desc']) && isset($_POST['price'])) {
-    $id = $_POST['id'];
+include_once('DinoConfigs.php');
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['name']) && isset($_POST['short_desc']) && isset($_POST['price'])) {
     $name = $_POST['name'];
     $price = $_POST['price'];
     $short_desc = $_POST['short_desc'];
@@ -28,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']) && isset($_POST[
 
 
     try {
-        $SQL = "INSERT INTO dino_catalogue(id,name,short_desc,price,dino_image) VALUES(?,?,?,?,?) ";
+        $SQL = "INSERT INTO dino_catalogue(name,short_desc,price,dino_image) VALUES(?,?,?,?) ";
 
         $IdSan = $pdo->quote($id);
         $NameSan = $pdo->quote($name);
@@ -37,11 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['id']) && isset($_POST[
 
 
         $stmt = $pdo->prepare($SQL);
-        $stmt->bindParam(1, $IdSan, PDO::PARAM_STR);
-        $stmt->bindParam(2, $NameSan, PDO::PARAM_STR);
-        $stmt->bindParam(3, $shortDescSan, PDO::PARAM_STR);
-        $stmt->bindParam(4, $PriceSan, PDO::PARAM_STR);
-        $stmt->bindParam(5, $imageData, PDO::PARAM_STR);
+        $stmt->bindParam(1, $NameSan, PDO::PARAM_STR);
+        $stmt->bindParam(2, $shortDescSan, PDO::PARAM_STR);
+        $stmt->bindParam(3, $PriceSan, PDO::PARAM_STR);
+        $stmt->bindParam(4, $imageData, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
 
