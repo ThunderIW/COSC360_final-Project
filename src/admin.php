@@ -128,26 +128,29 @@ $userImage = $_SESSION["user_image"];
         </form>
 
 
-        <form method="POST" class="add_dino">
+        <div class="add_dino">
             <h2> Add a Dinosaur!</h2>
-            <div class="add_dino_form_section">
+            <form class="add_dino_form_section" method="POST" action="dinosaur_validate.php">
                 <label> ID:</label>
-                <input type="int"></input>
+                <input type="text" id="id" name="id" placeholder="Dinosaur ID" required></input> <br>
                 <label> Name:</label>
-                <input type="text"></input>
+                <input type="text" id="name" name="name" placeholder="Dinosaur Name" required></input> <br>
                 <label> Short Description:</label>
-                <input type="text"></input>
-                <label> Price:</label>
-                <input type="text"></input>
+                <input type="text" id="short_desc" name="short_desc" placeholder="Add a short description"
+                    required></input> <br>
+                <label> Price: $ </label>
+                <input type="text" id="price" name="price" placeholder="Add a Dinosaur Price" required></input> <br>
                 <label> image_address:</label>
-                <textarea></textarea>
+                <input type="file" id="dino_image" name="dino_image" accept="image/png" required /> <br>
                 <label> Status:</label>
-                <input type="text"></input>
+                <input type="text" id="status" name="status" placeholder="Add a status"></input> <br>
                 <label> Tags:</label>
-                <input type="text"></input>
-            </div>
-
-        </form>';
+                <input type="text" id="tags" name="tags"></input>
+                <div class="add_dino_button">
+                    <button class="add_dino_button" type="submit">Add a Dinosaur!</button>
+                </div>
+            </form>
+        </div>
 
     </section>
 
