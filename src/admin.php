@@ -4,6 +4,10 @@ if (isset($_SESSION["login_success"])) {
     $alertToSend = $_SESSION["login_success"];
     unset($_SESSION["login_success"]);
 }
+if (isset($_SESSION["error_message"])) {
+    $message_to_be_displayed = $_SESSION["error_message"];
+    unset($_SESSION["error_message"]);
+}
 $userImage = $_SESSION["user_image"];
 ?>
 
@@ -127,26 +131,30 @@ $userImage = $_SESSION["user_image"];
             </div>
         </form>
 
-
         <div class="add_dino">
             <h2> Add a Dinosaur!</h2>
-            <form class="add_dino_form_section" method="POST" action="dinosaur_validate.php">
+            <form class="add_dino_form_section" method="POST" action="dinosaur_validate.php"
+                enctype="multipart/form-data">
                 <label> Name:</label>
                 <input type="text" id="name" name="name" placeholder="Dinosaur Name" required></input> <br>
                 <label> Short Description:</label>
                 <input type="text" id="short_desc" name="short_desc" placeholder="Add a short description"
                     required></input> <br>
+                <label> Long Description:</label>
+                <input type="text" id="long_desc" name="long_desc" placeholder="Add a long description"
+                    required></input> <br>
                 <label> Price: $ </label>
                 <input type="text" id="price" name="price" placeholder="Add a Dinosaur Price" required></input> <br>
                 <label> image_address:</label>
-                <input type="file" id="dino_image" name="dino_image" accept="image/png" required /> <br>
+                <input type="text" id="dino_image" name="dino_image" placeholder="Add image link" required /> <br>
                 <label> Status:</label>
                 <input type="text" id="status" name="status" placeholder="Add a status"></input> <br>
                 <label> Tags:</label>
-                <input type="text" id="tags" name="tags"></input>
+                <input type="text" id="tags" name="tags" placeholder="Add tags (make sure to use commas)"></input>
                 <div class="add_dino_button">
                     <button class="add_dino_button" type="submit">Add a Dinosaur!</button>
                 </div>
+                <?php echo $message_to_be_displayed; ?>
             </form>
         </div>
 

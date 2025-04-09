@@ -1,6 +1,3 @@
--- Create the database
-CREATE DATABASE IF NOT EXISTS iwiessle;
-USE iwiessle;
 
 -- Create the table
 CREATE TABLE IF NOT EXISTS dino_catalogue (

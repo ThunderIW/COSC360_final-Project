@@ -1,67 +1,64 @@
 <?php
+
 session_start();
-
 $Reg_done = false;
-include_once('DinoConfigs.php');
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['name']) && isset($_POST['short_desc']) && isset($_POST['price'])) {
+include_once('SeverConfigs.php');
+if (
+    $_SERVER['REQUEST_METHOD'] == 'POST' &&
+    isset($_POST['name']) &&
+    isset($_POST['short_desc']) &&
+    isset($_POST['long_desc']) &&
+    isset($_POST['price']) &&
+    isset($_POST['dino_image']) &&
+    isset($_POST['status']) &&
+    isset($_POST['tags'])
+) {
     $name = $_POST['name'];
-    $price = $_POST['price'];
     $short_desc = $_POST['short_desc'];
-
-    if (isset($_FILES['dino_image']) && $_FILES['dino_image']['error'] === UPLOAD_ERR_OK) {
-        $fileTmpPath = $_FILES['dino_image']['tmp_name'];
-        $fileType = mime_content_type($_FILES['dino_image']['tmp_name']);
-
-        if ($fileType == "image/png") {
-            $imageData = file_get_contents($_FILES['user_image']['tmp_name']);
-        } else {
-            $_SESSION['error_message'] = "Only PNG images are allowed.";
-            header("Location: admin.php");
-            exit();
-
-        }
-
+    $long_desc = $_POST['long_desc'];
+    if (is_numeric($_POST['price'])) {
+        $price = $_POST['price'];
     } else {
-        $imageData = file_get_contents("assets/emptyIcon.png");
+        $_SESSION["error_message"] = "The price has to be a decimal value!";
+        header("Location: admin.php");
+        exit();
     }
-
+    $image = $_POST['dino_image'];
+    if ($_POST['status'] === "available" || $_POST['status'] === "unavailable") {
+        $status = $_POST['status'];
+    } else {
+        $_SESSION["error_message"] = "The status has to be either 'available' or 'unavailable'";
+        header("Location: admin.php");
+        exit();
+    }
+    $tags = $_POST['tags'];
 
     try {
-        $SQL = "INSERT INTO dino_catalogue(name,short_desc,price,dino_image) VALUES(?,?,?,?) ";
-
-        $IdSan = $pdo->quote($id);
-        $NameSan = $pdo->quote($name);
-        $shortDescSan = $pdo->quote($short_desc);
-        $PriceSan = $pdo->quote($price);
-
+        $SQL = "INSERT INTO dino_catalogue(name,short_description,long_description,price,image_address,status,tags) VALUES(?,?,?,?,?,?,?) ";
 
         $stmt = $pdo->prepare($SQL);
-        $stmt->bindParam(1, $NameSan, PDO::PARAM_STR);
-        $stmt->bindParam(2, $shortDescSan, PDO::PARAM_STR);
-        $stmt->bindParam(3, $PriceSan, PDO::PARAM_STR);
-        $stmt->bindParam(4, $imageData, PDO::PARAM_STR);
+        $stmt->bindParam(1, $name, PDO::PARAM_STR);
+        $stmt->bindParam(2, $short_desc, PDO::PARAM_STR);
+        $stmt->bindParam(3, $long_desc, PDO::PARAM_STR);
+        $stmt->bindParam(4, $price, PDO::PARAM_STR);
+        $stmt->bindParam(5, $image, PDO::PARAM_STR);
+        $stmt->bindParam(6, $status, PDO::PARAM_STR);
+        $stmt->bindParam(7, $tags, PDO::PARAM_STR);
         $stmt->execute();
         $stmt->closeCursor();
-
+        $Reg_done = true;
     } catch (PDOException $e) {
         if ($e->getCode() == 23000) {
-            $_SESSION['error_message'] = "{$email} has been already registered.";
-
+            $_SESSION['error_message'] = "{$e->getMessage()}";
+            header("Location: admin.php");
+            exit();
         }
     }
-    $Reg_done = true;
-    echo "";
     if ($Reg_done) {
-        $_SESSION["Reg_successful"] = "thank you for adding this dinosaur, {$firstName}!";
-
+        $_SESSION["Reg_successful"] = "thank you for adding this dinosaur!";
         header("Location:admin.php");
         exit();
     }
-
-
 }
-
-
-
 
 ?>
