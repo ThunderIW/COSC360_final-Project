@@ -120,6 +120,7 @@ nav {
   border: 2px solid red !important;
 }
 
+/* Admin Section */
 .delete {
   margin: 50px auto;
   background-color: white;
@@ -141,22 +142,21 @@ nav {
   width: 50%;
   margin-bottom: 20px;
   margin-top: 20px;
+  border-collapse: collapse;
 }
 
-.delete td {
-  text-align: center;
-  width: 20%;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  font-size: 30px;
-}
-
+.delete td,
 .delete th {
   text-align: center;
   width: 20%;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  font-size: 30px;
+  padding: 10px;
+  font-size: 18px;
+  border: 1px solid #ccc;
+}
+
+.delete th {
+  background-color: #f9f9f9;
+  font-size: 20px;
 }
 
 .delete button {
@@ -168,6 +168,8 @@ nav {
   text-decoration: none;
   font-size: 16px;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .delete button:hover {
@@ -175,26 +177,37 @@ nav {
   transform: scale(1.05);
 }
 
+/* 🟢 FIXED: Search bar + button layout */
 .searching_users {
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
+  margin: 0 auto;
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .searching_users input {
-  margin: auto;
+  flex: 1;
   padding: 10px;
-  gap: 15px;
-  width: 75%;
+  font-size: 16px;
 }
 
 .searching_users button {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 10px;
-  margin: 20px;
-  gap: 15px;
+  padding: 10px 20px;
+  font-size: 16px;
   border-radius: 10px;
+  background-color: #ff6666;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.searching_users button:hover {
+  background-color: #d90000;
+  transform: scale(1.05);
 }
 
 .adminform > .delete {
@@ -205,6 +218,7 @@ nav {
   margin-top: 20px;
 }
 
+/* Add Dinosaur Section */
 .add_dino {
   background-color: white;
   width: 50%;
@@ -229,11 +243,15 @@ nav {
 .add_dino_form_section label {
   margin: 20px;
   font-size: 20px;
+  display: inline-block;
+  width: 150px;
 }
 
 .add_dino_form_section input {
   margin: 20px;
-  width: 40%;
+  width: 60%;
+  padding: 10px;
+  font-size: 16px;
 }
 
 .add_dino_form_section button {
@@ -246,6 +264,8 @@ nav {
   text-decoration: none;
   font-size: 16px;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .add_dino_form_section button:hover {

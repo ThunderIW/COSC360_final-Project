@@ -18,7 +18,7 @@ $userImage = $_SESSION["user_image"];
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Admin</title>
-    <link rel="stylesheet" href="../src/admin.css" />
+    <link rel="stylesheet" href="assets/CSS/admin.css" />
     <script src="scripts/profileDropDown.js" defer></script>
 </head>
 
