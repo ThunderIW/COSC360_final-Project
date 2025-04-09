@@ -15,7 +15,6 @@ if (isset($_SESSION["Reg_successful"])){
 }
 if(isset($_SESSION["error_message"])){
     header("Location:signup.php");
-    exit();
 
 
 
