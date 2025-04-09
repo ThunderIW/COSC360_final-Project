@@ -26,6 +26,7 @@ $userImage = $_SESSION["user_image"]
     <link rel="stylesheet" href="assets/CSS/signUp.css" />
     <script src="scripts/validateSignUp.js" defer></script>
     <script src="scripts/autoHideSignInOut.js" defer></script>
+    <script src="scripts/profileDropDown.js" defer></script>
 </head>
 
 <body>
@@ -44,10 +45,23 @@ $userImage = $_SESSION["user_image"]
 
             <div class="profile-container">
                 <button class="profile-button" id="user-menu-button">
-                    <img src="assets/emptyIcon.png" alt="User Profile" />
+                    <img src="<?php
+                    echo (!empty($_SESSION['user_image']))
+                        ? 'data:image/png;base64,' . $_SESSION['user_image']
+                        : 'assets/emptyIcon.png';
+                    ?>"
+
+                         alt="User Profile" />
                 </button>
                 <div id="user-dropdown" class="dropdown-menu">
-                    <a href="Profile.php">Your Profile</a>
+                    <?php if (isset($_SESSION["email"])): ?>
+                        <a href="Profile.php">Your Profile</a>
+                        <a href="logout.php">Sign out</a>
+                    <?php else: ?>
+                        <a href="login.php">Sign In</a>
+                        <a href="signup.php">Register</a>
+                    <?php endif; ?>
+
                 </div>
             </div>
         </div>

@@ -84,6 +84,13 @@ if($_SESSION["email"] && isset($_SESSION["firstName"]) && isset($_SESSION["lastN
             <a href="About_us.php">About us</a>
             <a href="Contact.php">Contact us</a>
             <a href="checkout.html"> Checkout</a>
+            <?php
+            if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
+                echo '<a href="admin.php"> Admin</a>';
+            }
+            ?>
+            <a href="checkout.php"> Checkout</a>
+
         </div>
         <div class="profile-container">
             <button class="profile-button" id="user-menu-button">
