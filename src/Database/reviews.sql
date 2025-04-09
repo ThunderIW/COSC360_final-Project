@@ -1,4 +1,3 @@
-use iwiessle;
 
 -- Create table reviews
 CREATE TABLE reviews (
