@@ -4,7 +4,7 @@ include_once("SeverConfigs.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_POST["password"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
-    $passwordSan = $pdo->quote($password);
+    $passwordSan = $pdo->quote(md5($password));
     $emailSan = $pdo->quote($email);
     try {
         $sql = "SELECT * FROM users WHERE email=? and password=?";
