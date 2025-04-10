@@ -132,7 +132,7 @@ try {
                 <p class="total_quantity" id="total_quantity">Total Number of
                     Dinosaurs: <?php echo array_sum(array_column($Dinosaurs, 'quantity')); ?> </p>
 
-                <button class="finalize"> Finalize Order</button>
+                <button id="finalize"> Finalize Order</button>
             </div>
 
         </section>
@@ -142,5 +142,77 @@ try {
         <p>&copy; 2025 Your Company. All rights reserved.</p>
     </footer>
 </body>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const button = document.getElementById("finalize");
+        if (button) {
+            button.addEventListener('click', makeOrder);
+        }
+        function makeOrder() {
+            const getPaymentMethods = document.querySelectorAll('input[name="paymenttype"]');
+            let chosenPaymentMethod = null;
+
+            for (const method of getPaymentMethods) {
+                if (method.checked) {
+                    chosenPaymentMethod = method.value;
+                    break;
+                }
+            }
+            if (!chosenPaymentMethod) {
+                alert('You need to select a specific payment method in otder to finalize your order!');
+                return;
+            }
+            fetch('finalizeOrder.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    payment_method: chosenPaymentMethod
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alert(data.message);
+                        clearCart();
+                        document.getElementById('total_price').textContent = 'Total Price: $0.00';
+                        document.getElementById('total_quantity').textContent = 'Total Number of Dinosaurs: 0';
+
+
+
+                    } else {
+                        alert(data.message);
+                    }
+                })
+                .catch(error => {
+                    alert(error);
+                })
+        }
+    })
+
+    function clearCart() {
+        const cart = document.querySelector('.cart_list');
+        if (!cart) return;
+        cart.innerHTML = '';
+        const cartIsEmpty = document.createElement('div');
+        cartIsEmpty.className = 'empty_cart';
+
+        const message = document.createElement('p');
+        message.textContent = 'No dinosaurs are in your cart!';
+
+        const button = document.createElement('button');
+        button.className = 'shopmore';
+        button.textContent = 'Add dinosaurs to your cart!';
+        button.onclick = function () {
+            window.location.href = 'Shop.php';
+        };
+
+        cartIsEmpty.appendChild(message);
+        cartIsEmpty.appendChild(button);
+        cart.appendChild(cartIsEmpty);
+    }
+
+</script>
 
 </html>
