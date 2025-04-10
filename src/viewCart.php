@@ -85,9 +85,11 @@ try {
     <div class="cart_list">
         <h2>List of Dinosaurs in your cart:</h2>
         <?php if (empty($Dinosaurs)): ?>
-            <div class="empty-cart">
+            <div class="empty_cart">
                 <p> There are no dinosaurs in your cart!</p>
-                <a href="Shop.php">Add Dinosaurs to your cart!</a>
+                <button class="shopmore" onclick="window.location.href = 'Shop.php';">
+                    Add dinosaurs to your cart!
+                </button>
             </div>
         <?php else: ?>
             <?php foreach ($Dinosaurs as $dino): ?>
@@ -98,15 +100,21 @@ try {
                     <div class="dinosaur_details">
                         <h3><?php echo $dino['name']; ?></h3>
                         <p class="price">Price: $<?php echo number_format($dino['price'], 2); ?> </p>
-                        <p class="quantity">Quantity: <?php echo $dino['quantity']; ?> </p>
-                        <p class="price">Subtotal: $<?php echo number_format($dino['price'] * $dino['quantity'], 2); ?></p>
+                        <p class="quantity">Quantity: </p>
+                        <input type="number" id="quantity_<?php echo $dino['dino_id']; ?>"
+                            value="<?php echo $dino['quantity']; ?>" min="1"
+                            onchange="updateQuantity(<?php echo $dino['dino_id']; ?>,<?php echo $dino['price']; ?>)" />
+                        <p class="price" id="subtotal_<?php echo $dino['dino_id']; ?>">Subtotal:
+                            $<?php echo number_format($dino['price'] * $dino['quantity'], 2); ?></p>
+                        <button class="delete_dino" type="submit" onclick="removeDinosaur(<?php echo $dino['dino_id']; ?>)">
+                            Delete Dinosaur</button>
                     </div>
                 </div>
             <?php endforeach; ?>
             <div class="totals">
                 <h3> Total Amount:</h3>
-                <p class="total_price">Total Price: $<?php echo number_format($total, 2); ?></p>
-                <p class="total_quantity">Total Number of
+                <p class="total_price" id="total_price">Total Price: $<?php echo number_format($total, 2); ?></p>
+                <p class="total_quantity" id="total_quantity">Total Number of
                     Dinosaurs: <?php echo array_sum(array_column($Dinosaurs, 'quantity')); ?> </p>
                 <button class="shopmore" onclick="window.location.href = 'Shop.php';">
                     Want more dinosaurs? Continue shopping here!
@@ -118,6 +126,97 @@ try {
 
         <?php endif; ?>
     </div>
+
+
+    <script>
+        function updateQuantity(dinoid, price) {
+            const quantity = document.getElementById('quantity_' + dinoid);
+            const subtotal = document.getElementById('subtotal_' + dinoid);
+
+            const quantityOfDino = parseInt(quantity.value);
+            const newSubtotal = quantityOfDino * price;
+            subtotal.textContent = "Subtotal: $" + newSubtotal.toFixed(2);
+
+            updateTotal();
+            updateDinosaur(dinoid, quantityOfDino);
+        }
+
+        function updateTotal() {
+            const allQuantities = document.querySelectorAll('input[id^="quantity_"]');
+
+            let totalPrice = 0;
+            let totalQuantity = 0;
+
+            allQuantities.forEach(input => {
+                const dinoId = input.id.replace('quantity_', '');
+                const quantity = parseInt(input.value);
+
+                const priceElement = input.closest('.dinosaur_details').querySelector('.price');
+                const priceText = priceElement.textContent;
+                const price = parseFloat(priceText.replace('Price: $', '').trim().replace(',', ''));
+
+                totalQuantity += quantity;
+                totalPrice += price * quantity;
+            });
+            document.getElementById('total_price').textContent = 'Total Amount: $' + totalPrice.toFixed(2);
+            document.getElementById('total_quantity').textContent = 'Total Quantity: ' + totalQuantity;
+
+
+        }
+
+        function updateDinosaur(dinoid, quantity) {
+            fetch("updateDinosaur.php", {
+                method: "POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    dino_id: dinoid,
+                    quantity: quantity
+                })
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (!data.success) {
+                        alert(data.message);
+                    }
+                }).catch(error => {
+                    alert(error);
+                })
+        }
+
+
+
+        function removeDinosaur(dinoid) {
+            if (confirm("Would you like to remove this dinosaur from your cart?")) {
+                fetch("removeDinosaur.php", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        dino_id: dinoid
+                    })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert(data.message);
+                            location.reload();
+                        } else {
+                            alert(data.message);
+                        }
+                    })
+            }
+        }
+
+    </script>
+
+
+
+
     <!-- Footer -->
     <footer>
         <p>&copy; 2025 Jurassic-Care. All rights reserved.</p>

@@ -1,16 +1,35 @@
 <?php
 session_start();
-if (isset($_SESSION["user_image"])) {
-    $userImage = $_SESSION["user_image"];
+include_once("SeverConfigs.php");
 
+if (!isset($_SESSION["id"])) {
+    header("Location: login.php");
+    exit();
 }
-$userImage = $_SESSION["user_image"]
 
+$user_id = $_SESSION["id"];
+$Dinosaurs = []; //the dinosaurs in your cart
+$total = 0; //total price of all dinosaurs
 
+try {
+    $dinosaurs = "SELECT c.dino_id, c.quantity, d.name,d.price,d.image_address
+            FROM cart c
+            JOIN dino_catalogue d ON c.dino_id = d.id
+            WHERE c.user_id = ?";
 
-    ?>
+    $stmt = $pdo->prepare($dinosaurs);
+    $stmt->bindValue(1, $user_id, PDO::PARAM_INT);
+    $stmt->execute();
 
+    $Dinosaurs = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
+    foreach ($Dinosaurs as $dino) {
+        $total += $dino['price'] * $dino['quantity'];
+    }
+} catch (PDOException $e) {
+    die($e->getMessage());
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -58,32 +77,37 @@ $userImage = $_SESSION["user_image"]
 
         <section class="shoppinglist">
             <h2>Here is the list of dinosaurs in your cart:</h2>
-            <div class="itemlist">
-                <div class="item1">
-                    <img src="assets/t-rex.webp" />
-                    <h3>T-Rex</h3>
-                    <div class="amount">
-                        <p>Price: $500</p>
-                        <p>Quantity: 1</p>
+            <div class="cart_list">
+                <?php if (empty($Dinosaurs)): ?>
+                    <div class="empty_cart">
+                        <p> There are no dinosaurs in your cart!</p>
+                        <button class="shopmore" onclick="window.location.href = 'Shop.php';">
+                            Add dinosaurs to your cart!
+                        </button>
                     </div>
-                </div>
-                <div class="item2">
-                    <img src="assets/velociraptor.png" />
-                    <h3>Raptor</h3>
-                    <div class="amount">
-                        <p>Price: $900</p>
-                        <p>Quantity: 3</p>
-                    </div>
-                </div>
-                <div class="item3">
-                    <img src="assets/stegosaurus.png" />
-                    <h3>Stegosaurus</h3>
-                    <div class="amount">
-                        <p>Price: $400</p>
-                        <p>Quantity: 2</p>
-                    </div>
-                </div>
+                <?php else: ?>
+                    <?php foreach ($Dinosaurs as $dino): ?>
+                        <div class="dinosaur_item">
+                            <div class="dinosaur_image">
+                                <img src="<?php echo $dino['image_address']; ?>" alt="<?php echo $dino['name']; ?>">
+                            </div>
+                            <div class="dinosaur_details">
+                                <h3><?php echo $dino['name']; ?></h3>
+                                <p class="price">Price: $<?php echo number_format($dino['price'], 2); ?> </p>
+                                <p class="quantity">Quantity: <?php echo $dino['quantity']; ?></p>
+                                <p class="price" id="subtotal_<?php echo $dino['dino_id']; ?>">Subtotal:
+                                    $<?php echo number_format($dino['price'] * $dino['quantity'], 2); ?></p>
+                            </div>
 
+                        </div>
+                    <?php endforeach; ?>
+
+
+                <?php endif; ?>
+            </div>
+
+            </div>
+            <div class="more_dinos">
                 <p>Want to add more dinosaurs to your cart?</p>
                 <button class="shopmore" onclick="window.location.href = 'Shop.php';">
                     Redirect Me!
@@ -102,8 +126,15 @@ $userImage = $_SESSION["user_image"]
             <input type="radio" id="paypal" name="paymenttype" value="paypal" />
             <label>PayPal</label>
 
-            <h2>Total Amount Due: $1800.00</h2>
-            <button class="paybutton">Pay Now</button>
+            <div class="totals">
+                <h3> Total Amount:</h3>
+                <p class="total_price" id="total_price">Total Price: $<?php echo number_format($total, 2); ?></p>
+                <p class="total_quantity" id="total_quantity">Total Number of
+                    Dinosaurs: <?php echo array_sum(array_column($Dinosaurs, 'quantity')); ?> </p>
+
+                <button class="finalize"> Finalize Order</button>
+            </div>
+
         </section>
     </main>
     <!-- Footer -->

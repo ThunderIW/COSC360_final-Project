@@ -129,41 +129,6 @@ nav {
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
 }
 
-.delete h2 {
-  text-align: center;
-  font-size: 40px;
-  padding-top: 20px;
-}
-
-.delete table {
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
-.delete td {
-  text-align: center;
-  width: 20%;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  font-size: 30px;
-}
-
-.delete th {
-  text-align: center;
-  width: 20%;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  font-size: 30px;
-}
-
-.delete button:hover {
-  background-color: #d90000;
-  transform: scale(1.05);
-}
-
 .cart_list {
   margin-left: auto;
   margin-right: auto;
@@ -171,7 +136,8 @@ nav {
 }
 
 .cart_list h2 {
-  font-size: 30px;
+  transform: translateX(+10%);
+  font-size: 40px;
   margin-left: auto;
   margin-right: auto;
   width: 50%;
@@ -236,6 +202,24 @@ nav {
   color: white;
   margin-top: 20px;
   max-width: 50%;
+}
+
+.delete_dino {
+  display: inline-block;
+  background-color: #ff6666;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.delete_dino button:hover {
+  background-color: #d90000;
+  transform: scale(1.05);
 }
 
 /* Footer */
