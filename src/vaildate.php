@@ -8,7 +8,8 @@ include_once('SeverConfigs.php');
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['password']) && isset($_POST['email'])) {
     $firstName = $_POST['firstname'];
     $lastName = $_POST['lastname'];
-    $password = $_POST['password'];
+    $hashedPassword = password_hash($_POST['password'], PASSWORD_DEFAULT);
+
     $email = $_POST['email'];
 
     if (isset($_FILES['user_image']) && $_FILES['user_image']['error'] === UPLOAD_ERR_OK) {
@@ -35,14 +36,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['firstname']) && isset(
         $firstNameSan = $pdo->quote($firstName);
         $lastNameSan = $pdo->quote($lastName);
         $emailSan = $pdo->quote($email);
-        $passwordSan = $pdo->quote(md5($password));
+        //$passwordSan = $pdo->quote($password);
 
 
 
         $stmt = $pdo->prepare($SQL);
         $stmt->bindParam(1, $firstNameSan, PDO::PARAM_STR);
         $stmt->bindParam(2, $lastNameSan, PDO::PARAM_STR);
-        $stmt->bindParam(3, $passwordSan, PDO::PARAM_STR);
+        $stmt->bindParam(3, $hashedPassword, PDO::PARAM_STR);
         $stmt->bindParam(4, $emailSan, PDO::PARAM_STR);
         $stmt->bindParam(5, $imageData, PDO::PARAM_STR);
         $stmt->execute();

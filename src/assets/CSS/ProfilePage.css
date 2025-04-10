@@ -170,4 +170,33 @@ footer:hover {
     opacity: 0;
 }
 
+/* Red border for mismatch */
+
+/* Green border */
+.success-border {
+    border: 2px solid green !important;
+}
+
+.success-border:focus {
+    box-shadow: 0 0 4px green;
+}
+
+
+
+/* Red border */
+.error-border {
+    border: 2px solid red !important;
+}
+
+
+.error-border:focus {
+    box-shadow: 0 0 4px red;
+}
+
+
+
+
+
+
+
 

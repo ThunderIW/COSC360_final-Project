@@ -50,6 +50,7 @@ if($_SESSION["email"] && isset($_SESSION["firstName"]) && isset($_SESSION["lastN
     <!-- Ensure both stylesheets are included -->
     <script src="scripts/profileDropDown.js" defer></script>
     <script src="scripts/autoHideSignInOut.js" defer></script>
+    <script src="scripts/validatePasswordMatch.js" defer></script>
 
 </head>
 <body>
@@ -84,6 +85,13 @@ if($_SESSION["email"] && isset($_SESSION["firstName"]) && isset($_SESSION["lastN
             <a href="About_us.php">About us</a>
             <a href="Contact.php">Contact us</a>
             <a href="checkout.html"> Checkout</a>
+            <?php
+            if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
+                echo '<a href="admin.php"> Admin</a>';
+            }
+            ?>
+            <a href="checkout.php"> Checkout</a>
+
         </div>
         <div class="profile-container">
             <button class="profile-button" id="user-menu-button">
@@ -170,6 +178,11 @@ if($_SESSION["email"] && isset($_SESSION["firstName"]) && isset($_SESSION["lastN
 
         <label for="password">New Password (leave blank to keep current):</label><br>
         <input type="password" name="password" id="password"><br><br>
+
+        <label for="confirm-password">Please retype password:</label><br>
+        <input type="password" id="confirm_password" name="confirm_password"><br><br>
+
+
 
         <label for="user_image">New Profile Image (PNG only):</label><br>
         <input type="file" name="user_image" id="user_image" accept="image/png"><br><br>
