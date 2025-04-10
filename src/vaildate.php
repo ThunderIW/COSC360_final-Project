@@ -35,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['firstname']) && isset(
         $firstNameSan = $pdo->quote($firstName);
         $lastNameSan = $pdo->quote($lastName);
         $emailSan = $pdo->quote($email);
-        $passwordSan = $pdo->quote($password);
+        $passwordSan = $pdo->quote(md5($password));
 
 
 
