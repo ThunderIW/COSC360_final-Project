@@ -120,7 +120,7 @@ nav {
   border: 2px solid red !important;
 }
 
-.delete {
+.dinosaur_item {
   margin: 50px auto;
   background-color: white;
   padding-bottom: 20px;
@@ -159,98 +159,83 @@ nav {
   font-size: 30px;
 }
 
-.delete button {
-  display: inline-block;
-  background-color: #ff6666;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
 .delete button:hover {
   background-color: #d90000;
   transform: scale(1.05);
 }
 
-.searching_users {
+.cart_list {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
 }
 
-.searching_users input {
-  margin: auto;
-  padding: 10px;
-  gap: 15px;
-  width: 75%;
-}
-
-.searching_users button {
+.cart_list h2 {
+  font-size: 30px;
   margin-left: auto;
   margin-right: auto;
-  padding: 10px;
-  margin: 20px;
-  gap: 15px;
+  width: 50%;
+}
+
+.dinosaur_image img {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: 200px;
+}
+
+.dinosaur_details {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 25px;
+}
+
+.totals {
+  background-color: white;
+  padding-bottom: 20px;
+  padding: 25px;
   border-radius: 10px;
-}
-
-.adminform > .delete {
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-  margin-bottom: 20px;
-  margin-top: 20px;
-}
-
-.add_dino {
-  background-color: white;
-  width: 50%;
-  margin-bottom: 20px;
-  margin-left: auto;
-  margin-right: auto;
-  border-radius: 20px;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  width: 50%;
 }
 
-.add_dino h2 {
-  background-color: white;
-  text-align: center;
-  font-size: 40px;
-  padding: 30px;
+.totals > .total_price {
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
-.add_dino_form_section {
-  background-color: white;
+.totals > .total_quantity {
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
 }
 
-.add_dino_form_section label {
-  margin: 20px;
-  font-size: 20px;
+.totals h3 {
+  font-size: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
 }
 
-.add_dino_form_section input {
-  margin: 20px;
-  width: 40%;
-}
-
-.add_dino_form_section button {
-  margin: 20px 10px;
+.totals .shopmore {
   display: inline-block;
-  background-color: #4f46e5;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.add_dino_form_section button:hover {
+  transform: translateX(+50%);
+  margin-left: auto;
+  margin-right: auto;
   background-color: #4338ca;
-  transform: scale(1.05);
+  border-radius: 8px;
+  padding: 20px;
+  border-color: #4338ca;
+  color: white;
+  margin-top: 20px;
+  max-width: 50%;
 }
 
 /* Footer */

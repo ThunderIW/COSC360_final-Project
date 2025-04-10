@@ -83,7 +83,7 @@ try {
     </nav>
 
     <div class="cart_list">
-        <h2>All Dinosaurs in your cart!</h2>
+        <h2>List of Dinosaurs in your cart:</h2>
         <?php if (empty($Dinosaurs)): ?>
             <div class="empty-cart">
                 <p> There are no dinosaurs in your cart!</p>
@@ -103,13 +103,25 @@ try {
                     </div>
                 </div>
             <?php endforeach; ?>
+            <div class="totals">
+                <h3> Total Amount:</h3>
+                <p class="total_price">Total Price: $<?php echo number_format($total, 2); ?></p>
+                <p class="total_quantity">Total Number of
+                    Dinosaurs: <?php echo array_sum(array_column($Dinosaurs, 'quantity')); ?> </p>
+                <button class="shopmore" onclick="window.location.href = 'Shop.php';">
+                    Want more dinosaurs? Continue shopping here!
+                </button><br>
+                <button class="shopmore" onclick="window.location.href = 'checkout.php';">
+                    Finalize your purchase? Checkout here!
+                </button><br>
+            </div>
 
         <?php endif; ?>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2025 Jurassic-Care. All rights reserved.</p>
-        </footer>
+    </div>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Jurassic-Care. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>
