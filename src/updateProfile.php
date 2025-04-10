@@ -32,7 +32,8 @@ try {
     $params[] = $newEmail;
 
     if (!empty($password)) {
-        $quotedPassword="'" . $password . "'";
+    $hashedPassword = md5($password); // Apply MD5 hash
+        $quotedPassword="'" . $hashedPassword . "'";
         $fields[] = "password = ?";
         $params[] = $quotedPassword;
     }
