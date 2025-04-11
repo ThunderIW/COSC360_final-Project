@@ -32,9 +32,10 @@ try {
     $params[] = $newEmail;
 
     if (!empty($password)) {
-        $quotedPassword="'" . $password . "'";
+        $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
+        //$quotedPassword="'" . $password . "'";
         $fields[] = "password = ?";
-        $params[] = $quotedPassword;
+        $params[] = $hashedPassword;
     }
 
     if (isset($_FILES['user_image']) && $_FILES['user_image']['error'] === UPLOAD_ERR_OK) {

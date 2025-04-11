@@ -70,6 +70,7 @@ try {
     <!-- Ensure both stylesheets are included -->
     <script src="scripts/profileDropDown.js" defer></script>
     <script src="scripts/autoHideSignInOut.js" defer></script>
+    <script src="scripts/validatePasswordMatch.js" defer></script>
 
 </head>
 
@@ -208,6 +209,9 @@ try {
 
             <label for="password">New Password (leave blank to keep current):</label><br>
             <input type="password" name="password" id="password"><br><br>
+
+            <label for="confirm-password">Please retype password:</label><br>
+            <input type="password" id="confirm_password" name="confirm_password"><br><br>
 
             <label for="user_image">New Profile Image (PNG only):</label><br>
             <input type="file" name="user_image" id="user_image" accept="image/png"><br><br>
