@@ -1,15 +1,54 @@
 <?php
 session_start();
-if (!isset($_SESSION['id'])) {
-    header("Location: login.php");
-    exit();
-}
+include_once("SeverConfigs.php");
 if (isset($_SESSION["login_success"])) {
     $alertToSend = $_SESSION["login_success"];
     unset($_SESSION["login_success"]);
 }
 
 $userImage = $_SESSION["user_image"];
+
+
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit();
+}
+
+$dino_id = $_GET['id'];
+$user_id = $_SESSION['id'];
+
+try {
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM orders WHERE user_id = ? AND dino_id = ?");
+    $stmt->execute([$user_id, $dino_id]);
+    $purchased = ($stmt->fetchColumn() > 0);
+
+    if (!$purchased) {
+        header("Location: Product.php?id=" . $dino_id . "&error=notPurchasedBefore");
+        exit();
+    }
+
+    $stmt = $pdo->prepare("SELECT name,image_address FROM dino_catalogue WHERE id = ?");
+    $stmt->execute([$dino_id]);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    if (!$result) {
+        header("Location: Shop.php");
+        exit();
+    }
+
+    $dino_name = $result['name'];
+    $dino_image = $result['image_address'];
+
+    $user = $pdo->prepare("SELECT firstName,lastName FROM users WHERE id =?");
+    $user->execute([$user_id]);
+    $userResult = $user->fetch(PDO::FETCH_ASSOC);
+    $user_name = $userResult['firstName'] . ' ' . $userResult['lastName'];
+
+} catch (PDOException $e) {
+    error_log("Error " . $e->getMessage());
+    header("Location: Shop.php");
+    exit();
+}
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +57,8 @@ $userImage = $_SESSION["user_image"];
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HomePage</title>
-    <link rel="stylesheet" href="assets/CSS/homePage.css" />
+    <title>Add Review</title>
+    <link rel="stylesheet" href="../src/makereview.css" />
     <script src="scripts/profileDropDown.js" defer></script>
 </head>
 
@@ -57,11 +96,6 @@ $userImage = $_SESSION["user_image"];
                         ? 'data:image/png;base64,' . $_SESSION['user_image']
                         : 'assets/emptyIcon.png';
                     ?>" alt="User Profile" />
-
-
-
-
-
                 </button>
 
                 <div id="user-dropdown" class="dropdown-menu">
@@ -76,36 +110,15 @@ $userImage = $_SESSION["user_image"];
             </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero">
-        <h1>Jurassic-Care</h1>
-        <p>Prehistoric power to modern solutions</p>
-        <a href="Shop.php">Shop Now</a>
-    </header>
+    <div class="review">
+        <h2>Write your review for <?php echo $dino_name; ?></h2>
+        <form action="submitReview.php" method="POST">
+            <input type="hidden" name="dino_id" value="<?php echo $dino_id; ?>">
+            <textarea name="review" placeholder="Write your review ..." required></textarea><br>
+            <button>Submit review</button>
+        </form>
+    </div>
 
-    <!-- Features Section -->
-    <section class="features">
-        <h2>Why Choose Us?</h2>
-        <div class="feature-item">
-            <h3>Quality Products</h3>
-            <p>We provide the best quality products at affordable prices.</p>
-        </div>
-        <div class="feature-item">
-            <h3>Fast Shipping</h3>
-            <p>Get your orders delivered quickly and safely.</p>
-        </div>
-        <div class="feature-item">
-            <h3>24/7 Support</h3>
-            <p>Our team is always here to help you with any questions.</p>
-        </div>
-    </section>
-
-    <!-- Call to Action (CTA) -->
-    <section class="cta">
-        <h2>Join Our Community</h2>
-        <p>Stay updated with our latest deals and offers.</p>
-        <a href="Contact.php">Contact Us</a>
-    </section>
 
     <!-- Footer -->
     <footer>

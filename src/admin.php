@@ -45,28 +45,41 @@ function cleanValue($value)
         echo "<script type='text/javascript'>alert('$alertToSend');</script>";
     }
     ?>
+    <!-- Navbar -->
     <nav>
         <div class="nav-container">
             <div class="logo">
                 <img src="assets/logos/dinosaur.png" alt="Company Logo" width="40" />
             </div>
             <div class="nav-links">
-                <a href="homePage.php">Home</a>
+                <a href="homePage.php" class="active">Home</a>
                 <a href="Shop.php">Shop</a>
                 <a href="About_us.php">About Us</a>
                 <a href="Contact.php">Contact us</a>
+                <a href="viewCart.php">Cart</a>
                 <?php
                 if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
                     echo '<a href="admin.php" class="active"> Admin</a>';
                 }
                 ?>
                 <a href="checkout.php"> Checkout</a>
+
             </div>
+
             <div class="profile-container">
                 <button class="profile-button" id="user-menu-button">
-                    <img src="<?php echo (!empty($userImage)) ? 'data:image/png;base64,' . $userImage : 'assets/emptyIcon.png'; ?>"
-                        alt="User Profile" />
+                    <img src="<?php
+                    echo (!empty($_SESSION['user_image']))
+                        ? 'data:image/png;base64,' . $_SESSION['user_image']
+                        : 'assets/emptyIcon.png';
+                    ?>" alt="User Profile" />
+
+
+
+
+
                 </button>
+
                 <div id="user-dropdown" class="dropdown-menu">
                     <?php if (isset($_SESSION["email"])): ?>
                         <a href="Profile.php">Your Profile</a>
@@ -77,7 +90,6 @@ function cleanValue($value)
                     <?php endif; ?>
                 </div>
             </div>
-        </div>
     </nav>
 
     <div style="display: flex; justify-content: center; width: 100%;">
@@ -200,13 +212,13 @@ function cleanValue($value)
     <?php /*
 if (isset($green_text) && $green_text): ?>
 <div id="toast" class="toast">
-   <?php echo $message_to_be_displayed; ?>
+<?php echo $message_to_be_displayed; ?>
 </div>
 <script>
-   setTimeout(() => {
-       const toast = document.getElementById("toast");
-       if (toast) toast.remove();
-   }, 4000);
+setTimeout(() => {
+const toast = document.getElementById("toast");
+if (toast) toast.remove();
+}, 4000);
 </script>
 <?php endif;
 */ ?>

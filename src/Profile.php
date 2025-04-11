@@ -43,6 +43,18 @@ try {
 } catch (PDOException $e) {
     error_log("Error: " . $e->getMessage());
 }
+
+$reviewsHistory = [];
+try {
+    $stmt = $pdo->prepare("SELECT r.id,r.text,d.name
+                            FROM reviews r
+                            JOIN dino_catalogue d ON r.dino_id = d.id 
+                            WHERE r.user_id = ?");
+    $stmt->execute([$user_id]);
+    $reviewsHistory = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    error_log("Error: " . $e->getMessage());
+}
 ?>
 
 
@@ -161,13 +173,26 @@ try {
     </div>
 
     <div class="profile-content">
-        <h3>Wishlist</h3>
-        <select id="wishlist-select">
-            <option>Select an item</option>
-            <option>Smartphone</option>
-            <option>Wireless Headphones</option>
-            <option>Gaming Laptop</option>
-        </select>
+        <h3>Review History</h3>
+        <?php if (empty($reviewsHistory)): ?>
+            <p> You haven't posted any reviews!</p>
+        <?php else: ?>
+            <table class="order_table" border="1">
+                <tr>
+                    <th>Review ID:</th>
+                    <th>Review:</th>
+                    <th>Dinosaur Name:</th>
+                </tr>
+                <?php foreach ($reviewsHistory as $review): ?>
+                    <tr>
+                        <td><?php echo $review['id']; ?></td>
+                        <td><?php echo $review['text']; ?></td>
+                        <td><?php echo $review['name']; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        <?php endif; ?>
+
     </div>
 
     <div class="profile-content">

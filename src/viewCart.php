@@ -45,13 +45,14 @@ try {
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav>
         <div class="nav-container">
             <div class="logo">
                 <img src="assets/logos/dinosaur.png" alt="Company Logo" width="40" />
             </div>
             <div class="nav-links">
-                <a href="homePage.php">Home</a>
+                <a href="homePage.php" class="active">Home</a>
                 <a href="Shop.php">Shop</a>
                 <a href="About_us.php">About Us</a>
                 <a href="Contact.php">Contact us</a>
@@ -64,11 +65,21 @@ try {
                 <a href="checkout.php"> Checkout</a>
 
             </div>
+
             <div class="profile-container">
                 <button class="profile-button" id="user-menu-button">
-                    <img src="<?php echo isset($_SESSION['email']) && !empty($_SESSION['user_image']) ? 'data:image/png;base64,' . $_SESSION['user_image'] : 'assets/emptyIcon.png'; ?>"
-                        alt="User Profile" />
+                    <img src="<?php
+                    echo (!empty($_SESSION['user_image']))
+                        ? 'data:image/png;base64,' . $_SESSION['user_image']
+                        : 'assets/emptyIcon.png';
+                    ?>" alt="User Profile" />
+
+
+
+
+
                 </button>
+
                 <div id="user-dropdown" class="dropdown-menu">
                     <?php if (isset($_SESSION["email"])): ?>
                         <a href="Profile.php">Your Profile</a>
@@ -79,7 +90,6 @@ try {
                     <?php endif; ?>
                 </div>
             </div>
-        </div>
     </nav>
 
     <div class="cart_list">

@@ -50,23 +50,44 @@ try {
                 <img src="assets/logos/dinosaur.png" alt="Company Logo" width="40" />
             </div>
             <div class="nav-links">
-                <a href="homePage.php">Home</a>
+                <a href="homePage.php" class="active">Home</a>
                 <a href="Shop.php">Shop</a>
-                <a href="#">Projects</a>
+                <a href="About_us.php">About Us</a>
                 <a href="Contact.php">Contact us</a>
-                <a href="checkout.html" class="active"> Checkout</a>
+                <a href="viewCart.php">Cart</a>
+                <?php
+                if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
+                    echo '<a href="admin.php"> Admin</a>';
+                }
+                ?>
+                <a href="checkout.php" class="active"> Checkout</a>
+
             </div>
+
             <div class="profile-container">
                 <button class="profile-button" id="user-menu-button">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt="User Profile" />
+                    <img src="<?php
+                    echo (!empty($_SESSION['user_image']))
+                        ? 'data:image/png;base64,' . $_SESSION['user_image']
+                        : 'assets/emptyIcon.png';
+                    ?>" alt="User Profile" />
+
+
+
+
+
                 </button>
+
                 <div id="user-dropdown" class="dropdown-menu">
-                    <a href="#">Your Profile</a>
-                    <a href="login.html">Sign out</a>
+                    <?php if (isset($_SESSION["email"])): ?>
+                        <a href="Profile.php">Your Profile</a>
+                        <a href="logout.php">Sign out</a>
+                    <?php else: ?>
+                        <a href="login.php">Sign In</a>
+                        <a href="signup.php">Register</a>
+                    <?php endif; ?>
                 </div>
             </div>
-        </div>
     </nav>
 
     <main class="checkout">

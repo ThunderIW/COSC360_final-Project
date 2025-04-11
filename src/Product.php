@@ -98,7 +98,7 @@ try {
                 </div>
                 <div id="review">
                     <h4>Provide Feedback / Review this Dinosaur</h4>
-                    <button id="addReview">Add your review</button>
+                    <button type="button " id="addReview">Add your review</button>
                 </div>
             </div>
         </div>
@@ -164,26 +164,9 @@ try {
         <script>
             document.getElementById("addReview").addEventListener("click", function () {
                 <?php if (!isset($_SESSION['id'])): ?>
-                    alert("You must be logged in to leave a review");
+                    alert("You must be logged in order to leave a review");
                 <?php else: ?>
-                    let userId = <?php echo json_encode($_SESSION['id']); ?>;
-                    let dinoId = <?php echo json_encode($_GET['id']); ?>;
-
-                    // Query to check if the user has purchased the dinosaur
-                    let query = "SELECT * FROM orders WHERE user_id = :user_id AND dino_id = :dino_id";
-                    let stmt = <?php echo json_encode($pdo); ?>.prepare(query);
-                    stmt.bindParam(':user_id', userId, PDO:: PARAM_INT);
-                    stmt.bindParam(':dino_id', dinoId, PDO:: PARAM_INT);
-
-                    stmt.execute()
-                        .then(response => {
-                            if (response.rowCount > 0) {
-                                window.location.href = "Review.php?id=" + dinoId;
-                            } else {
-                                alert("You can only review dinosaurs you've purchased");
-                            }
-                        })
-                        .catch(error => console.error("Error:", error));
+                    window.location.href = "makeReview.php?id=<?php echo $id; ?>";
                 <?php endif; ?>
             });
         </script>
