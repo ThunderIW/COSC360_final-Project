@@ -35,8 +35,8 @@ $ordersHistory = [];
 try {
     $stmt = $pdo->prepare("SELECT o.id, o.date,d.name, SUM(o.quantity) as total
                             FROM orders o
-		            JOIN dino_catalogue d
-                            WHERE o.user_id = ? 
+		            JOIN dino_catalogue d ON o.dino_id = d.id                            
+			    WHERE o.user_id = ? 
                             GROUP by o.id,o.date
                             ORDER BY o.date DESC");
     $stmt->execute([$user_id]);

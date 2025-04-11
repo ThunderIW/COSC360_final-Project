@@ -43,125 +43,125 @@ try {
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="assets/logos/dinosaur.png" alt="Company Logo" width="40" />
-            </div>
-            <div class="nav-links">
-                <a href="homePage.php">Home</a>
-                <a href="Shop.php">Shop</a>
-                <a href="About_us.php">About Us</a>
-                <a href="Contact.php">Contact us</a>
-                <a href="viewCart.php">Cart</a>
-                <?php
-                if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
-                    echo '<a href="admin.php"> Admin</a>';
-                }
-                ?>
-                <a href="checkout.php" class="active"> Checkout</a>
+<!-- Navbar -->
+<nav>
+    <div class="nav-container">
+        <div class="logo">
+            <img src="assets/logos/dinosaur.png" alt="Company Logo" width="40" />
+        </div>
+        <div class="nav-links">
+            <a href="homePage.php">Home</a>
+            <a href="Shop.php">Shop</a>
+            <a href="About_us.php">About Us</a>
+            <a href="Contact.php">Contact us</a>
+            <a href="viewCart.php">Cart</a>
+            <?php
+            if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
+                echo '<a href="admin.php"> Admin</a>';
+            }
+            ?>
+            <a href="checkout.php" class="active"> Checkout</a>
 
-            </div>
+        </div>
 
-            <div class="profile-container">
-                <button class="profile-button" id="user-menu-button">
-                    <img src="<?php
-                    echo (!empty($_SESSION['user_image']))
-                        ? 'data:image/png;base64,' . $_SESSION['user_image']
-                        : 'assets/emptyIcon.png';
-                    ?>" alt="User Profile" />
-
-
+        <div class="profile-container">
+            <button class="profile-button" id="user-menu-button">
+                <img src="<?php
+                echo (!empty($_SESSION['user_image']))
+                    ? 'data:image/png;base64,' . $_SESSION['user_image']
+                    : 'assets/emptyIcon.png';
+                ?>" alt="User Profile" />
 
 
 
-                </button>
 
-                <div id="user-dropdown" class="dropdown-menu">
-                    <?php if (isset($_SESSION["email"])): ?>
-                        <a href="Profile.php">Your Profile</a>
-                        <a href="logout.php">Sign out</a>
-                    <?php else: ?>
-                        <a href="login.php">Sign In</a>
-                        <a href="signup.php">Register</a>
-                    <?php endif; ?>
-                </div>
-            </div>
-    </nav>
 
-    <main class="checkout">
-        <section class="prompt">
-            <h1>Ready to Checkout?</h1>
-            <h2>Finalize your order right here!</h2>
-        </section>
+            </button>
 
-        <section class="shoppinglist">
-            <h2>Here is the list of dinosaurs in your cart:</h2>
-            <div class="cart_list">
-                <?php if (empty($Dinosaurs)): ?>
-                    <div class="empty_cart">
-                        <p> There are no dinosaurs in your cart!</p>
-                        <button class="shopmore" onclick="window.location.href = 'Shop.php';">
-                            Add dinosaurs to your cart!
-                        </button>
-                    </div>
+            <div id="user-dropdown" class="dropdown-menu">
+                <?php if (isset($_SESSION["email"])): ?>
+                    <a href="Profile.php">Your Profile</a>
+                    <a href="logout.php">Sign out</a>
                 <?php else: ?>
-                    <?php foreach ($Dinosaurs as $dino): ?>
-                        <div class="dinosaur_item">
-                            <div class="dinosaur_image">
-                                <img src="<?php echo $dino['image_address']; ?>" alt="<?php echo $dino['name']; ?>">
-                            </div>
-                            <div class="dinosaur_details">
-                                <h3><?php echo $dino['name']; ?></h3>
-                                <p class="price">Price: $<?php echo number_format($dino['price'], 2); ?> </p>
-                                <p class="quantity">Quantity: <?php echo $dino['quantity']; ?></p>
-                                <p class="price" id="subtotal_<?php echo $dino['dino_id']; ?>">Subtotal:
-                                    $<?php echo number_format($dino['price'] * $dino['quantity'], 2); ?></p>
-                            </div>
-
-                        </div>
-                    <?php endforeach; ?>
-
-
+                    <a href="login.php">Sign In</a>
+                    <a href="signup.php">Register</a>
                 <?php endif; ?>
             </div>
+        </div>
+</nav>
 
-            </div>
-            <div class="more_dinos">
-                <p>Want to add more dinosaurs to your cart?</p>
-                <button class="shopmore" onclick="window.location.href = 'Shop.php';">
-                    Redirect Me!
-                </button>
-            </div>
-        </section>
+<main class="checkout">
+    <section class="prompt">
+        <h1>Ready to Checkout?</h1>
+        <h2>Finalize your order right here!</h2>
+    </section>
 
-        <section class="pay">
-            <h2>How would you like to pay for your dinosaurs?</h2>
-            <input type="radio" id="creditcard" name="paymenttype" value="creditcard" />
-            <label>Credit Card</label>
-            <br />
-            <input type="radio" id="debitcard" name="paymenttype" value="debitcard" />
-            <label>Debit Card</label>
-            <br />
-            <input type="radio" id="paypal" name="paymenttype" value="paypal" />
-            <label>PayPal</label>
+    <section class="shoppinglist">
+        <h2>Here is the list of dinosaurs in your cart:</h2>
+        <div class="cart_list">
+            <?php if (empty($Dinosaurs)): ?>
+                <div class="empty_cart">
+                    <p> There are no dinosaurs in your cart!</p>
+                    <button class="shopmore" onclick="window.location.href = 'Shop.php';">
+                        Add dinosaurs to your cart!
+                    </button>
+                </div>
+            <?php else: ?>
+                <?php foreach ($Dinosaurs as $dino): ?>
+                    <div class="dinosaur_item">
+                        <div class="dinosaur_image">
+                            <img src="<?php echo $dino['image_address']; ?>" alt="<?php echo $dino['name']; ?>">
+                        </div>
+                        <div class="dinosaur_details">
+                            <h3><?php echo $dino['name']; ?></h3>
+                            <p class="price">Price: $<?php echo number_format($dino['price'], 2); ?> </p>
+                            <p class="quantity">Quantity: <?php echo $dino['quantity']; ?></p>
+                            <p class="price" id="subtotal_<?php echo $dino['dino_id']; ?>">Subtotal:
+                                $<?php echo number_format($dino['price'] * $dino['quantity'], 2); ?></p>
+                        </div>
 
-            <div class="totals">
-                <h3> Total Amount:</h3>
-                <p class="total_price" id="total_price">Total Price: $<?php echo number_format($total, 2); ?></p>
-                <p class="total_quantity" id="total_quantity">Total Number of
-                    Dinosaurs: <?php echo array_sum(array_column($Dinosaurs, 'quantity')); ?> </p>
+                    </div>
+                <?php endforeach; ?>
 
-                <button id="finalize"> Finalize Order</button>
-            </div>
 
-        </section>
-    </main>
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Your Company. All rights reserved.</p>
-    </footer>
+            <?php endif; ?>
+        </div>
+
+        </div>
+        <div class="more_dinos">
+            <p>Want to add more dinosaurs to your cart?</p>
+            <button class="shopmore" onclick="window.location.href = 'Shop.php';">
+                Redirect Me!
+            </button>
+        </div>
+    </section>
+
+    <section class="pay">
+        <h2>How would you like to pay for your dinosaurs?</h2>
+        <input type="radio" id="creditcard" name="paymenttype" value="creditcard" />
+        <label>Credit Card</label>
+        <br />
+        <input type="radio" id="debitcard" name="paymenttype" value="debitcard" />
+        <label>Debit Card</label>
+        <br />
+        <input type="radio" id="paypal" name="paymenttype" value="paypal" />
+        <label>PayPal</label>
+
+        <div class="totals">
+            <h3> Total Amount:</h3>
+            <p class="total_price" id="total_price">Total Price: $<?php echo number_format($total, 2); ?></p>
+            <p class="total_quantity" id="total_quantity">Total Number of
+                Dinosaurs: <?php echo array_sum(array_column($Dinosaurs, 'quantity')); ?> </p>
+
+            <button id="finalize"> Finalize Order</button>
+        </div>
+
+    </section>
+</main>
+<!-- Footer -->
+<footer>
+    <p>&copy; 2025 Your Company. All rights reserved.</p>
+</footer>
 </body>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -199,6 +199,14 @@ try {
                         clearCart();
                         document.getElementById('total_price').textContent = 'Total Price: $0.00';
                         document.getElementById('total_quantity').textContent = 'Total Number of Dinosaurs: 0';
+                        setTimeout(()=>{
+                            window.location.href = 'Shop.php';
+                        },1500);
+
+
+                        
+
+
 
 
 
