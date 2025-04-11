@@ -55,7 +55,7 @@ To test admin functionalities, use the following credentials:
 <code>admin@gmail.com</code>
 
 **Password:**  
-<code>Admin123</code>
+<code>admin123</code>
 
 > **Note:** This account has full access to the admin dashboard, including user management and dinosaur listings. Please use responsibly during testing.
 
