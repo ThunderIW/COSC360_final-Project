@@ -52,7 +52,7 @@ To run the project head over: [Live Website](https://cosc360.ok.ubc.ca/iwiessle/
 To test admin functionalities, use the following credentials:
 
 **Email:**  
-<code>admin@jurassiccare.com</code>
+<code>admin@gmail.com</code>
 
 **Password:**  
 <code>Admin123!</code>
