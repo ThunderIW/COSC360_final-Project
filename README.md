@@ -2,7 +2,7 @@
 **COSC 360 – Final Project | Web Development**  
 **Team Project Repository**
 
-
+---
 
 ## 📌 Project Overview
 
@@ -10,7 +10,7 @@
 
 This site was built for the COSC 360 course at UBC Okanagan, combining front-end and back-end technologies with secure session-based features and a user-friendly interface.
 
-—
+---
 
 ## 🧰 Tech Stack
 
@@ -20,7 +20,7 @@ This site was built for the COSC 360 course at UBC Okanagan, combining front-end
 - **Hosting:** COSC360 Web Server (Apache)
 - **Tools:** GitHub, VS Code
 
-—
+---
 
 ## 🌟 Features
 
@@ -38,12 +38,12 @@ This site was built for the COSC 360 course at UBC Okanagan, combining front-end
 - Add new dinosaur listings
 - Access admin dashboard (admin.php)
 
-—
+---
 
 ## 🚀 How to Run the Project
 To run the project head over: [Live Website](https://cosc360.ok.ubc.ca/iwiessle/Website/homePage.php)
 
-—
+---
 ## 🔐 Admin Access 
 
 <details>
@@ -62,11 +62,11 @@ To test admin functionalities, use the following credentials:
 </details>
 
 
-—
+---
 
 ## 👥 Team Members & Statements of Contribution
 
-—
+---
 
 ### 🧑‍💻 **Keeran Naidu(93948883) – Full-stack Developer**
 
@@ -95,7 +95,7 @@ To test admin functionalities, use the following credentials:
 - Added profile tables for order and review history.
 - Co-authored final project documentation.
 
-—
+---
 
 ### 🧑‍💻 **Immanuel Wiessler(20803375) – Full-stack Developer**
 
@@ -123,7 +123,7 @@ To test admin functionalities, use the following credentials:
 - Modified `deleteFromDb.php` to ensure deletion of associated reviews and orders when a user is removed.
 - Finalized updates and patches on the live server.
 
-—
+---
 
 ### 🧑‍💻 **Manjot Singh(99067191) – Back-end & Data Management**
 
