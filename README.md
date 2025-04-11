@@ -44,6 +44,20 @@ This site was built for the COSC 360 course at UBC Okanagan, combining front-end
 To run the project head over: [Live Website](cosc360.ok.ubc.ca/iwiessle/Website/homePage.php)
 
 ---
+## 🔐 Admin Access (Demo)
+
+<details>
+<summary>Click to reveal admin login credentials</summary>
+
+To test admin functionalities, use the following credentials:
+Email: admin@gmail.com
+Password: Admin123!
+> **Note:** This account has full access to the admin dashboard, including user management and dinosaur listings. Please use responsibly during testing.
+
+</details>
+
+
+--
 
 ## 👥 Team Members & Statements of Contribution
 
