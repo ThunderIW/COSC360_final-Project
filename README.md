@@ -27,4 +27,4 @@ Milestone 4: Full site
 -   I created the checkout.php which allows users to see all the dinosaurs in their cart. 
 -   I ensured that users must be logged in to access certain pages on our website.
 -   In the user profile, I implemented tables which show the user’s history of orders and their reviews corresponding to a specific dinosaur. 
--   I helped write the documentation for the Full Site Project report.
+-   I helped write the documentation for the Full Site Project report and the Walkthrough Document.
