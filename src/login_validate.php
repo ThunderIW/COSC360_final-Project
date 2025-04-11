@@ -1,11 +1,12 @@
 <?php
+
 session_start();
 include_once("SeverConfigs.php");
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_POST["password"])) {
     $email = $_POST["email"];
     $password = $_POST["password"];
     //$passwordSan = $pdo->quote($password);
-    $emailSan = $pdo->quote($email);
+    $emailSan = "'" . trim($_POST["email"]) . "'";
     try {
         $sql = "SELECT * FROM users WHERE email=?";
         $stmt = $pdo->prepare($sql);
@@ -17,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_PO
 
 
 
-        if (!empty($userinfo) && password_verify($password,$userinfo['password']) && $emailSan == $userinfo['email']) {
+        if (!empty($userinfo) && password_verify($password,$userinfo['password']) ) {
             $_SESSION["login_success"] = "You have successfully logged in!";
             $_SESSION["id"] = $userinfo['id'];
             $_SESSION["email"] = $userinfo['email'];
@@ -35,8 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["email"]) && isset($_PO
             exit();
         }
 
-        if (empty($userinfo)) {
-
+        if (!password_verify($password,$userinfo['password'])) {
             $_SESSION["error_message_login"] = "Invalid login credentials!";
             header("Location: login.php"); // Reload login with error message
             exit();

@@ -396,7 +396,7 @@ p.redirect {
   width: 30%;
 }
 
-.finalize {
+#finalize {
   background-color: #4338ca;
   border-radius: 8px;
   padding: 10px;

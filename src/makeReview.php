@@ -57,7 +57,7 @@ try {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add Review</title>
-    <link rel="stylesheet" href="../src/makereview.css" />
+    <link rel="stylesheet" href="assets/CSS/makereview.css" />
     <script src="scripts/profileDropDown.js" defer></script>
 </head>
 

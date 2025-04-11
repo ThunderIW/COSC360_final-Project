@@ -1,0 +1,270 @@
+/* General styles */
+body {
+  background-color: #eef2f7;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+/* Navbar */
+nav {
+  background-color: #1f2937;
+  padding: 15px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-links a {
+  color: #d1d5db;
+  text-decoration: none;
+  padding: 12px 18px;
+  border-radius: 5px;
+  font-size: 15px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+  background-color: #374151;
+  color: white;
+}
+
+.active {
+  background-color: #111827;
+  color: white;
+}
+
+/* Profile Dropdown */
+.profile-container {
+  position: relative;
+}
+
+.profile-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.profile-button:hover {
+  transform: scale(1.05);
+}
+
+.profile-button img {
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+}
+
+.hero h1,
+.hero p {
+  text-align: center;
+}
+
+.dropdown-menu {
+  position: absolute;
+  right: 0;
+  background: white;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
+  border-radius: 6px;
+  flex-direction: column;
+  width: 160px;
+  z-index: 10;
+  padding: 10px 0;
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: none;
+}
+
+/* Show dropdown when toggled */
+.dropdown-menu.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.dropdown-menu a {
+  text-decoration: none;
+  color: #333;
+  padding: 12px 15px;
+  display: block;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f3f3f3;
+}
+
+.contact-form button:hover {
+  background-color: #4338ca;
+}
+
+/* Error Messages */
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+  display: block;
+}
+
+.error-border {
+  border: 2px solid red !important;
+}
+
+.dinosaur_item {
+  margin: 50px auto;
+  background-color: white;
+  padding-bottom: 20px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.cart_list {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.cart_list h2 {
+  transform: translateX(+10%);
+  font-size: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.dinosaur_image img {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: 200px;
+}
+
+.dinosaur_details {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 25px;
+}
+
+.totals {
+  background-color: white;
+  padding-bottom: 20px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  width: 50%;
+}
+
+.totals > .total_price {
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.totals > .total_quantity {
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.totals h3 {
+  font-size: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+.totals .shopmore {
+  display: inline-block;
+  transform: translateX(+50%);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #4338ca;
+  border-radius: 8px;
+  padding: 20px;
+  border-color: #4338ca;
+  color: white;
+  margin-top: 20px;
+  max-width: 50%;
+}
+
+.delete_dino {
+  display: inline-block;
+  background-color: #ff6666;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.delete_dino button:hover {
+  background-color: #d90000;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  background-color: #1f2937;
+  color: white;
+  text-align: center;
+  padding: 25px 0;
+  font-size: 14px;
+}
+
+.review {
+  background-color: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  font-size: 24px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.review button {
+  display: inline-block;
+  transform: translateX(+50%);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #4338ca;
+  border-radius: 8px;
+  padding: 20px;
+  border-color: #4338ca;
+  color: white;
+  margin-top: 20px;
+  width: 50%;
+}
+
+.review h2 {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.review textarea {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}

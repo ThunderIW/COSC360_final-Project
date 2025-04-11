@@ -33,8 +33,9 @@ if ($_SESSION["email"] && isset($_SESSION["firstName"]) && isset($_SESSION["last
 
 $ordersHistory = [];
 try {
-    $stmt = $pdo->prepare("SELECT o.id, o.date, SUM(o.quantity) as total
+    $stmt = $pdo->prepare("SELECT o.id, o.date,d.name, SUM(o.quantity) as total
                             FROM orders o
+		            JOIN dino_catalogue d
                             WHERE o.user_id = ? 
                             GROUP by o.id,o.date
                             ORDER BY o.date DESC");
@@ -157,15 +158,17 @@ try {
         <?php else: ?>
             <table class="order_table" border="1">
                 <tr>
+		    <th>Dino name</th>
                     <th>Order ID:</th>
                     <th>Quantity Ordered:</th>
                     <th>Time of Order:</th>
                 </tr>
                 <?php foreach ($ordersHistory as $order): ?>
                     <tr>
+			<td><?php echo $order['name']; ?></td>
                         <td><?php echo $order['id']; ?></td>
                         <td><?php echo $order['total']; ?></td>
-                        <td><?php echo date('M,j,Y', strtotime($order['date'])); ?></td>
+                        <td><?php echo date('M j Y', strtotime($order['date'])); ?></td>
                     </tr>
                 <?php endforeach; ?>
             </table>
