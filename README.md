@@ -1,4 +1,4 @@
-:# 🦖 Jurassic-Care  
+# 🦖 Jurassic-Care  
 **COSC 360 – Final Project | Web Development**  
 **Team Project Repository**
 
