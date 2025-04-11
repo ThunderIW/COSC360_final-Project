@@ -2,7 +2,7 @@
 **COSC 360 – Final Project | Web Development**  
 **Team Project Repository**
 
-—
+
 
 ## 📌 Project Overview
 
