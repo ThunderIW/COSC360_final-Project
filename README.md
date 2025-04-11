@@ -41,20 +41,13 @@ This site was built for the COSC 360 course at UBC Okanagan, combining front-end
 ---
 
 ## 🚀 How to Run the Project
+to run the project head over:[Live Website](cosc360.ok.ubc.ca/iwiessle/Website/homePage.php)
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-team-name/jurassic-care.git
-   cd jurassic-care
-   ```
 
-2. **Configure the database**
-   - Import the MySQL schema provided.
-   - Update your `SeverConfigs.php` with your local MySQL credentials.
+   
 
-3. **Deploy**
-   - Use an Apache server with PHP and MySQL (XAMPP, MAMP, or UBC COSC server).
-   - Ensure write permissions for image or file uploads if applicable.
+
+
 
 ---
 
