@@ -50,7 +50,7 @@ try {
                 <img src="assets/logos/dinosaur.png" alt="Company Logo" width="40" />
             </div>
             <div class="nav-links">
-                <a href="homePage.php" class="active">Home</a>
+                <a href="homePage.php">Home</a>
                 <a href="Shop.php">Shop</a>
                 <a href="About_us.php">About Us</a>
                 <a href="Contact.php">Contact us</a>

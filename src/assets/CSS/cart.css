@@ -64,6 +64,11 @@ nav {
   height: 42px;
 }
 
+.hero h1,
+.hero p {
+  text-align: center;
+}
+
 .dropdown-menu {
   position: absolute;
   right: 0;
@@ -80,6 +85,7 @@ nav {
   display: none;
 }
 
+/* Show dropdown when toggled */
 .dropdown-menu.show {
   display: flex;
   opacity: 1;
@@ -98,68 +104,6 @@ nav {
   background-color: #f3f3f3;
 }
 
-/* Hero Section */
-.hero {
-  text-align: center;
-  padding: 50px 20px 10px;
-}
-
-.hero h1 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-.hero p {
-  font-size: 16px;
-  color: #555;
-}
-
-/* Contact Form Section */
-.contact-form {
-  background-color: white;
-  max-width: 650px;
-  margin: 40px auto;
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
-}
-
-.contact-form .form-group {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.contact-form label {
-  font-weight: bold;
-  margin-bottom: 6px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 15px;
-}
-
-.contact-form textarea {
-  resize: vertical;
-}
-
-.contact-form button {
-  background-color: #4f46e5;
-  color: white;
-  padding: 12px;
-  border: none;
-  border-radius: 6px;
-  width: 100%;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
 .contact-form button:hover {
   background-color: #4338ca;
 }
@@ -174,6 +118,108 @@ nav {
 
 .error-border {
   border: 2px solid red !important;
+}
+
+.dinosaur_item {
+  margin: 50px auto;
+  background-color: white;
+  padding-bottom: 20px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.cart_list {
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.cart_list h2 {
+  transform: translateX(+10%);
+  font-size: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.dinosaur_image img {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: 200px;
+}
+
+.dinosaur_details {
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 25px;
+}
+
+.totals {
+  background-color: white;
+  padding-bottom: 20px;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.15);
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 20px;
+  width: 50%;
+}
+
+.totals > .total_price {
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.totals > .total_quantity {
+  font-size: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+.totals h3 {
+  font-size: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 30%;
+}
+
+.totals .shopmore {
+  display: inline-block;
+  transform: translateX(+50%);
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #4338ca;
+  border-radius: 8px;
+  padding: 20px;
+  border-color: #4338ca;
+  color: white;
+  margin-top: 20px;
+  max-width: 50%;
+}
+
+.delete_dino {
+  display: inline-block;
+  background-color: #ff6666;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.delete_dino button:hover {
+  background-color: #d90000;
+  transform: scale(1.05);
 }
 
 /* Footer */

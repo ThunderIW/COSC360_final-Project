@@ -39,7 +39,7 @@ try {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dinosaur Cart</title>
-    <link rel="stylesheet" href="../src/cart.css" />
+    <link rel="stylesheet" href="assets/CSS/cart.css" />
     <script src="scripts/newsletterEmailValidation.js" defer></script>
     <script src="scripts/profileDropDown.js" defer></script>
 </head>
@@ -52,7 +52,7 @@ try {
                 <img src="assets/logos/dinosaur.png" alt="Company Logo" width="40" />
             </div>
             <div class="nav-links">
-                <a href="homePage.php" class="active">Home</a>
+                <a href="homePage.php">Home</a>
                 <a href="Shop.php">Shop</a>
                 <a href="About_us.php">About Us</a>
                 <a href="Contact.php">Contact us</a>

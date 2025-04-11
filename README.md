@@ -41,20 +41,7 @@ This site was built for the COSC 360 course at UBC Okanagan, combining front-end
 ---
 
 ## 🚀 How to Run the Project
-
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/your-team-name/jurassic-care.git
-   cd jurassic-care
-   ```
-
-2. **Configure the database**
-   - Import the MySQL schema provided.
-   - Update your `SeverConfigs.php` with your local MySQL credentials.
-
-3. **Deploy**
-   - Use an Apache server with PHP and MySQL (XAMPP, MAMP, or UBC COSC server).
-   - Ensure write permissions for image or file uploads if applicable.
+To run the project head over: [Live Website](cosc360.ok.ubc.ca/iwiessle/Website/homePage.php)
 
 ---
 
@@ -81,6 +68,7 @@ This site was built for the COSC 360 course at UBC Okanagan, combining front-end
 
 ##### Milestone 4: Full Site Completion
 - Added an admin role field in the users table and created `admin.php` for managing accounts and adding dinosaurs.
+- Created the cart database to store wanted dinosaurs
 - Built a cart system with add/remove/update quantity capabilities in `viewcart.php`.
 - Allowed users to submit and view reviews in `product.php`.
 - Developed `checkout.php` for final cart review and order submission.
