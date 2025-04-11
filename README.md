@@ -157,14 +157,3 @@ This site was built for the COSC 360 course at UBC Okanagan, combining front-end
 - Created a dinosaur recommendation quiz based on user input.
 - Authored walkthrough and summary documentation.
 
----
-
-## 📄 License
-
-This project is for academic use only and developed under the COSC 360 course at UBC Okanagan. Please do not redistribute without permission from the project authors.
-
----
-
-## 📧 Contact
-
-For any project-related questions, feel free to reach out to the contributors or your COSC 360 instructors.
