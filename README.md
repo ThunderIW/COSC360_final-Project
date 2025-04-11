@@ -81,6 +81,7 @@ This site was built for the COSC 360 course at UBC Okanagan, combining front-end
 
 ##### Milestone 4: Full Site Completion
 - Added an admin role field in the users table and created `admin.php` for managing accounts and adding dinosaurs.
+- Created the cart database to store wanted dinosaurs
 - Built a cart system with add/remove/update quantity capabilities in `viewcart.php`.
 - Allowed users to submit and view reviews in `product.php`.
 - Developed `checkout.php` for final cart review and order submission.
