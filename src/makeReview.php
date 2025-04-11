@@ -27,7 +27,7 @@ try {
         exit();
     }
 
-    $stmt = $pdo->prepare("SELECT name,image_address FROM dino_catalogue WHERE id = ?");
+    $stmt = $pdo->prepare("SELECT name FROM dino_catalogue WHERE id = ?");
     $stmt->execute([$dino_id]);
     $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
@@ -37,7 +37,6 @@ try {
     }
 
     $dino_name = $result['name'];
-    $dino_image = $result['image_address'];
 
     $user = $pdo->prepare("SELECT firstName,lastName FROM users WHERE id =?");
     $user->execute([$user_id]);
