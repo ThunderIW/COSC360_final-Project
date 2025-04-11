@@ -62,10 +62,9 @@ This site was built for the COSC 360 course at UBC Okanagan, combining front-end
 
 ---
 
-### 🧑‍💻 **Keeran Naidu – Full-stack Developer**
+### 🧑‍💻 **Keeran Naidu(93948883) – Full-stack Developer**
 
 #### Statement of Contribution
-I contributed to our project's front-end and back-end development across all milestones.
 
 ##### Milestone 1: Planning and Design
 - Proposed the structure and navigation for website pages.
@@ -91,17 +90,72 @@ I contributed to our project's front-end and back-end development across all mil
 
 ---
 
-### 🧑‍💻 **[Developer 2 Name] – [Role]**
+### 🧑‍💻 **Immanuel Wiessler(20803375) – Full-stack Developer**
 
 #### Statement of Contribution
-> _[Describe Developer 2’s contributions here. Include details per milestone (planning, frontend, backend, final site), such as which pages they created, forms validated, database tables managed, sessions implemented, and any team coordination or debugging assistance provided.]_
+##### Milestone 1: Planning and Design
+- Participated in project planning and initial design discussions.
+- Designed the overall look and feel of the website, including its layout and navigational flow.
+
+##### Milestone 2: Client-side Experience
+- Helped set up the project repository and organized the folder structure.
+- Contributed to the HTML and CSS layout for the home and login pages and implemented them into the site.
+- Added client-side form validation for the login and sign-up systems using JavaScript.
+
+##### Milestone 3: Core Functionality
+- Implemented a PHP-based user authentication system with session management.
+- Assisted with server deployment on the COSC360 server and resolved login bugs related to session persistence.
+- Created the registration and profile update forms, including server-side validation and profile image upload functionality.
+- Developed the user profile system, allowing users to update their image, email, and password. Real-time success messages were added to confirm updates.
+- Enforced login session rules so users must be signed in to view or modify their profile. Conditional navigation links (e.g., sign in/register vs. profile/sign out) were implemented using a drop-down interface.
+
+##### Milestone 4: Full Site Completion
+- Modified the admin dashboard to include a popup confirmation for user deletions and added error-handling to indicate successful or failed deletions.
+- Replaced the outdated MD5 password hashing system with PHP’s `password_hash()` and `password_verify()` for improved security.
+- Created a password verification system in the user profile to confirm password match with a red/green border and feedback message.
+- Modified `deleteFromDb.php` to ensure deletion of associated reviews and orders when a user is removed.
+- Finalized updates and patches on the live server.
 
 ---
 
-### 🧑‍💻 **[Developer 3 Name] – [Role]**
+### 🧑‍💻 **Manjot Singh(99067191) – Back-end & Data Management**
 
 #### Statement of Contribution
-> _[Describe Developer 3’s contributions here. Mention their work on layout styling, database creation, checkout logic, admin security, profile management, asynchronous features (if any), or other backend/frontend logic they helped develop or refine.]_
+
+
+##### Milestone 1: Planning and Design
+- Determined the idea for the website (dinosaur services) and project direction.
+- Outlined essential functionalities and page requirements.
+- Mapped out navigation flow and user privileges.
+- Modeled the website based on anime merchandise stores for inspiration.
+- Authored documentation detailing page purposes and user flows.
+- Contributed minimally to UI/visuals due to visual impairment.
+
+##### Milestone 2: Client-side Experience
+- Built a static user profile page with fields like username, email, job, location, wishlist, and order history.
+- Introduced product and profile pages, linked via nav bar and shop page.
+- Added social media icons and client-side email validation for newsletter.
+- Updated navigation bar and added static content to various pages.
+
+##### Milestone 3: Core Functionality
+- Added dinosaur images and created the dinosaur catalog database.
+- Populated product entries and connected product/shop pages to DB using GET.
+- Implemented search and tag-based filtering for products.
+- Enabled multi-filter search with live updates.
+- Refactored and simplified outdated HTML code into PHP.
+- Performed bug testing and edge-case handling.
+- Documented features and contributions.
+
+##### Milestone 4: Full Site Completion
+- Created `orders` and `reviews` databases.
+- Made reviews on the product page display dynamically based on the dinosaur.
+- Enabled logged-in users who purchased a dinosaur to submit reviews.
+- Restricted review access to only verified purchasers.
+- Refactored code by removing deprecated or duplicate logic.
+- Implemented password hashing on sign-up and login.
+- Extensively tested site behavior for edge cases and unwanted outcomes.
+- Created a dinosaur recommendation quiz based on user input.
+- Authored walkthrough and summary documentation.
 
 ---
 
