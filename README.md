@@ -1,4 +1,4 @@
-# 🦖 Jurassic-Care  
+:# 🦖 Jurassic-Care  
 **COSC 360 – Final Project | Web Development**  
 **Team Project Repository**
 
@@ -44,7 +44,7 @@ This site was built for the COSC 360 course at UBC Okanagan, combining front-end
 To run the project head over: [Live Website](cosc360.ok.ubc.ca/iwiessle/Website/homePage.php)
 
 ---
-## 🔐 Admin Access (Demo)
+## 🔐 Admin Access 
 
 <details>
 <summary>Click to reveal admin login credentials</summary>
@@ -52,7 +52,8 @@ To run the project head over: [Live Website](cosc360.ok.ubc.ca/iwiessle/Website/
 To test admin functionalities, use the following credentials:
 <br>
 Email: admin@gmail.com
-Password: Admin123
+<br>
+Password: admin123
 > **Note:** This account has full access to the admin dashboard, including user management and dinosaur listings. Please use responsibly during testing.
 
 </details>
