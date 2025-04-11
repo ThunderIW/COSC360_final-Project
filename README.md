@@ -50,8 +50,9 @@ To run the project head over: [Live Website](cosc360.ok.ubc.ca/iwiessle/Website/
 <summary>Click to reveal admin login credentials</summary>
 
 To test admin functionalities, use the following credentials:
+<br>
 Email: admin@gmail.com
-Password: Admin123!
+Password: Admin123
 > **Note:** This account has full access to the admin dashboard, including user management and dinosaur listings. Please use responsibly during testing.
 
 </details>
