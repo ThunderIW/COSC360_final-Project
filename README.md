@@ -41,13 +41,7 @@ This site was built for the COSC 360 course at UBC Okanagan, combining front-end
 ---
 
 ## 🚀 How to Run the Project
-to run the project head over:[Live Website](cosc360.ok.ubc.ca/iwiessle/Website/homePage.php)
-
-
-   
-
-
-
+To run the project head over: [Live Website](cosc360.ok.ubc.ca/iwiessle/Website/homePage.php)
 
 ---
 
