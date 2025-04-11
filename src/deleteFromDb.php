@@ -3,7 +3,7 @@ session_start(); // ✅ Required to access the session
 
 include_once("SeverConfigs.php");
 
-$conn = new PDO("mysql:host=localhost;dbname=iwiessle", "iwiessle", "iwiessle");
+$conn = new PDO("mysql:host=localhost;dbname=users", "root", "");
 $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
 
 if (isset($_POST['id'])) {

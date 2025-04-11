@@ -1,5 +1,9 @@
 <?php
 session_start();
+if (!isset($_SESSION['id'])) {
+  header("Location: login.php");
+  exit();
+}
 if (isset($_SESSION["user_image"])) {
   $userImage = $_SESSION["user_image"];
 
@@ -32,25 +36,28 @@ $userImage = $_SESSION["user_image"]
       <div class="nav-links">
         <a href="homePage.php">Home</a>
         <a href="Shop.php">Shop</a>
-        <a href="About_us.php">About us</a>
+        <a href="About_us.php">About Us</a>
         <a href="Contact.php" class="active">Contact us</a>
+        <a href="viewCart.php">Cart</a>
         <?php
         if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
           echo '<a href="admin.php"> Admin</a>';
         }
         ?>
-        <a href="checkout.html"> Checkout</a>
+        <a href="checkout.php"> Checkout</a>
+
       </div>
 
       <div class="profile-container">
         <button class="profile-button" id="user-menu-button">
           <img src="<?php
-          if (isset($_SESSION['email']) && !empty($_SESSION['user_image'])) {
-            echo 'data:image/png;base64,' . $_SESSION['user_image'];
-          } else {
-            echo 'assets/emptyIcon.png';
-          }
+          echo (!empty($_SESSION['user_image']))
+            ? 'data:image/png;base64,' . $_SESSION['user_image']
+            : 'assets/emptyIcon.png';
           ?>" alt="User Profile" />
+
+
+
 
 
         </button>
@@ -65,8 +72,6 @@ $userImage = $_SESSION["user_image"]
           <?php endif; ?>
         </div>
       </div>
-
-
   </nav>
 
   <!-- Contact Section -->

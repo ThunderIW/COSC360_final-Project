@@ -7,7 +7,10 @@ include_once("SeverConfigs.php");
 //define('DB_PASSWORD', 'iwiessle');
 
 
-
+if (!isset($_SESSION['id'])) {
+    header("Location: login.php");
+    exit();
+}
 
 
 try {
@@ -128,6 +131,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
 </head>
 
 <body>
+    <!-- Navbar -->
     <nav>
         <div class="nav-container">
             <div class="logo">
@@ -138,13 +142,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
                 <a href="Shop.php" class="active">Shop</a>
                 <a href="About_us.php">About Us</a>
                 <a href="Contact.php">Contact us</a>
+                <a href="viewCart.php">Cart</a>
                 <?php
                 if (isset($_SESSION["isAdmin"]) && $_SESSION["isAdmin"] == 1) {
                     echo '<a href="admin.php"> Admin</a>';
                 }
                 ?>
-                <a href="checkout.php">Checkout</a>
+                <a href="checkout.php"> Checkout</a>
+
             </div>
+
             <div class="profile-container">
                 <button class="profile-button" id="user-menu-button">
                     <img src="<?php
@@ -152,6 +159,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
                         ? 'data:image/png;base64,' . $_SESSION['user_image']
                         : 'assets/emptyIcon.png';
                     ?>" alt="User Profile" />
+
+
 
 
 
@@ -167,9 +176,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['tags'])) {
                     <?php endif; ?>
                 </div>
             </div>
-        </div>
     </nav>
-
     <div class="search-bar-container">
         <input type="text" placeholder="Search products..." id="search-input">
         <button type="submit" id="search-button">Search</button>
