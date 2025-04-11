@@ -1,10 +1,10 @@
 # COSC360_final-Project
 
--Statement of Contribution
--Name: Keeran Naidu
--Course: COSC 360
--Project: Jurassic-Care
--I contributed to our project's front-end and back-end development across all milestones.
+- Statement of Contribution
+- Name: Keeran Naidu
+- Course: COSC 360
+- Project: Jurassic-Care
+- I contributed to our project's front-end and back-end development across all milestones.
 
 Milestone 1: Planning and Design
 •    I planned on what pages we should make for the project.
