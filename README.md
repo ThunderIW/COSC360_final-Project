@@ -68,7 +68,7 @@ To test admin functionalities, use the following credentials:
 
 ---
 
-### 🧑‍💻 **Keeran Naidu(93948883) – Full-stack Developer**
+### 🧑‍💻 **Keeran Naidu – Full-stack Developer**
 
 #### Statement of Contribution
 
@@ -97,7 +97,7 @@ To test admin functionalities, use the following credentials:
 
 ---
 
-### 🧑‍💻 **Immanuel Wiessler(20803375) – Full-stack Developer**
+### 🧑‍💻 **Immanuel Wiessler – Full-stack Developer**
 
 #### Statement of Contribution
 ##### Milestone 1: Planning and Design
@@ -125,7 +125,7 @@ To test admin functionalities, use the following credentials:
 
 ---
 
-### 🧑‍💻 **Manjot Singh(99067191) – Back-end & Data Management**
+### 🧑‍💻 **Manjot Singh – Back-end & Data Management**
 
 #### Statement of Contribution
 
